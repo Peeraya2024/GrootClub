@@ -14,6 +14,10 @@
             android:icon="@drawable/ic_account_box"
             android:title="@string/menu_profile" />
         <item
+            android:id="@+id/nav_booking"
+            android:icon="@drawable/ic_account_box"
+            android:title="Booking" />
+        <item
             android:id="@+id/nav_about_us"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/menu_about_us" />

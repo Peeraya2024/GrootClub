@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.appzaza.base.BaseFragment
 import com.example.grootclub.R
 import com.example.grootclub.databinding.FragmentBookingBinding
@@ -18,6 +19,9 @@ class BookingFragment : BaseFragment<FragmentBookingBinding>() {
 
     private fun initView() {
 
+        binding.buttonTennis.setOnClickListener {
+            Toast.makeText(requireContext(), "click", Toast.LENGTH_SHORT).show()
+        }
     }
 
 }

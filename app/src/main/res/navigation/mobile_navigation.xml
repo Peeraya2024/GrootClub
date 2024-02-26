@@ -18,6 +18,13 @@
         tools:layout="@layout/fragment_profile" />
 
     <fragment
+        android:id="@+id/nav_booking"
+        android:name="com.example.grootclub.ui.booking.BookingFragment"
+        android:label="booking"
+        tools:layout="@layout/fragment_booking" />
+
+
+    <fragment
         android:id="@+id/nav_about_us"
         android:name="com.example.grootclub.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_about_us"

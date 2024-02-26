@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <corners android:radius="@dimen/margin30dp"></corners>
+            <!--  Gradient Bg for Buttom -->
+            <gradient
+                android:startColor="#70FF64"
+                android:centerColor="#42FA32"
+                android:endColor="#08DA18"
+                android:angle="270"
+                />
+        </shape>
+    </item>
+
+
+</selector>
