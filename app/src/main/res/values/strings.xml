@@ -16,6 +16,7 @@
     <string name="full_name">Full name</string>
     <string name="your_password">Your password</string>
     <string name="hint_abc_email_com">abc@email.com</string>
+    <string name="username">Username</string>
     <string name="confirm_password">Confirm password</string>
     <string name="forgot_password">Forgot Password?</string>
     <!-- TODO: Remove or change this placeholder text -->

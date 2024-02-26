@@ -48,7 +48,7 @@ class SignInActivity : BaseActivity<ActivityLoginBinding>() {
         val email = sharedPref.getValueString("email")
         if (email != null) {
             if (email.isNotEmpty()) {
-                binding.etEmail.setText(email)
+                binding.etUsername.setText(email)
                 binding.swRemember.isChecked = true
             } else {
                 binding.swRemember.isChecked = false
@@ -56,7 +56,7 @@ class SignInActivity : BaseActivity<ActivityLoginBinding>() {
         }
 
         if (binding.swRemember.isChecked) {
-            binding.etEmail.addTextChangedListener(object : TextWatcher {
+            binding.etUsername.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(
                     s: CharSequence,
                     start: Int,
@@ -121,7 +121,7 @@ class SignInActivity : BaseActivity<ActivityLoginBinding>() {
         binding.swRemember.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 // การทำงานเมื่อสวิตช์ถูกเปิด
-                sharedPref.setValueString("email", binding.etEmail.text.toString())
+                sharedPref.setValueString("email", binding.etUsername.text.toString())
                 checkRemember()
             } else {
                 // การทำงานเมื่อสวิตช์ถูกปิด
@@ -159,7 +159,7 @@ class SignInActivity : BaseActivity<ActivityLoginBinding>() {
 
     private fun checkInputData() {
         val myDialog = MyDialog()
-        val email = binding.etEmail.text.toString()
+        val email = binding.etUsername.text.toString()
         val passValidator = EditTextValidator(binding.etPass)
 
         if (email.isEmpty() || !passValidator.isValid()) {
@@ -176,7 +176,7 @@ class SignInActivity : BaseActivity<ActivityLoginBinding>() {
     private fun checkRemember() {
 
         if (binding.swRemember.isChecked) {
-            binding.etEmail.addTextChangedListener(object : TextWatcher {
+            binding.etUsername.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(
                     s: CharSequence,
                     start: Int,
