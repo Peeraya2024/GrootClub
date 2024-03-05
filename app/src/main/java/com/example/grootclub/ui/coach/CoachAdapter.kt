@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.grootclub.R
+import com.example.grootclub.adapter.CoachItemClickListener
 import com.example.grootclub.data.CoachListModelItem
 import com.example.grootclub.databinding.ItemLayoutCoachBinding
 import com.example.grootclub.utils.loadImage
@@ -17,7 +18,7 @@ class CoachAdapter(
     private var onItemSelect: ((coach: CoachListModelItem) -> Unit)? = null,
     private val coachItemClickReadMore: CoachItemClickReadMore? = null
 ) : RecyclerView.Adapter<CoachAdapter.ViewHolder>() {
-    var coachItemClickListener: CoachFragment.CoachItemClickListener? = null
+    var coachItemClickListener: CoachItemClickListener? = null
     interface CoachItemClickReadMore {
         fun onReadMoreClicked(coach: CoachListModelItem)
         fun onItemClicked(coach: CoachListModelItem)

@@ -6,11 +6,17 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.grootclub.data.CoachListModelItem
 import com.example.grootclub.data.Remote.Repository.Home.CoachRepository
+import com.example.grootclub.data.TimeTableBookingModel
+import com.example.grootclub.data.TimeTableBookingModelItem
 import kotlinx.coroutines.launch
+import retrofit2.Response
 
 class CoachVM(private val repository: CoachRepository) : ViewModel() {
     private val _coachList = MutableLiveData<List<CoachListModelItem>>()
     val coachList: LiveData<List<CoachListModelItem>> = _coachList
+
+    private val _timeTableBooking = MutableLiveData<List<TimeTableBookingModelItem>>()
+    val timeTableBooking: LiveData<List<TimeTableBookingModelItem>> = _timeTableBooking
 
     val readMoreEvent = MutableLiveData<CoachListModelItem>()
 
@@ -24,4 +30,16 @@ class CoachVM(private val repository: CoachRepository) : ViewModel() {
             }
         }
     }
+
+    fun fetchTimeTableBooking() {
+        viewModelScope.launch {
+            try {
+                val result = repository.getTimeTableBooking()
+                _timeTableBooking.postValue(result)
+            } catch (e: Exception) {
+                _timeTableBooking.postValue(emptyList())
+            }
+        }
+    }
+
 }

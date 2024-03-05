@@ -61,13 +61,13 @@ class MainActivity : AppCompatActivity(), HomeFragment.HomeItemClickListener {
     }
 
     private fun observeData() {
-        sharedViewModel.getSelectedStadium().observe(this, Observer { stadium ->
+        sharedViewModel.getSelectedCoach().observe(this, Observer { data ->
             // ทำสิ่งที่คุณต้องการเมื่อมีการเลือก Stadium ใน HomeFragment
             // stadium คือข้อมูลที่ถูกส่งมาจาก HomeFragment
             if (sharedPref.isLogIn()) {
                 Toast.makeText(
                     this,
-                    "ยังไม่บ่ทันเฮ็ดจ้า พส. ${stadium.section}",
+                    "ยังไม่บ่ทันเฮ็ดจ้า พส. ${data.name}",
                     Toast.LENGTH_SHORT
                 ).show()
             } else {

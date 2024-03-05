@@ -7,6 +7,8 @@ import com.example.grootclub.data.Request.SignUp.ReqSignUp
 import com.example.grootclub.data.Response.Profile.RespCurrentUser
 import com.example.grootclub.data.Response.Profile.RespUpdateUser
 import com.example.grootclub.data.Response.SignIn.RespSignIn
+import com.example.grootclub.data.TimeTableBookingModel
+import com.example.grootclub.utils.GlobalVar
 import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.http.Body
@@ -30,4 +32,9 @@ interface Service {
 
     @PUT("/users/updateuser/65b12e7b9ee95b2558e0b4fc")
     suspend fun updateUser(@Body reqUpdateProfile: ReqUpdateProfile): Response<RespUpdateUser>
+
+    @GET("/tennisCourt/2024-02-27")
+    suspend fun getTimeTableBooking(): TimeTableBookingModel
+//    @GET(GlobalVar.timeTableBooking)
+//    suspend fun getTimeTableBooking(): Response<TimeTableBookingModel>
 }

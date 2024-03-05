@@ -19,9 +19,9 @@ class BookingFragment : BaseFragment<FragmentBookingBinding>() {
 
     private fun initView() {
 
-        binding.buttonTennis.setOnClickListener {
-            Toast.makeText(requireContext(), "click", Toast.LENGTH_SHORT).show()
-        }
+//        binding.buttonTennis.setOnClickListener {
+//            Toast.makeText(requireContext(), "click", Toast.LENGTH_SHORT).show()
+//        }
     }
 
 }

@@ -4,28 +4,1231 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment"
-    android:background="@color/background_another_color">
+    android:background="@color/background_another_color"
+    tools:context=".ui.home.HomeFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcv"
-        tools:listitem="@layout/item_layout_product"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin10dp"
+                    app:cardCornerRadius="@dimen/margin20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/bg4"
+                        android:padding="@dimen/margin20dp">
+
+                        <LinearLayout
+                            android:id="@+id/lyTitle1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/txtTitle1"
+                                style="@style/TextTile18"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="We Are Open"
+                                android:textColor="@color/white" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/txtTitle2"
+                                style="@style/TextTile18"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text=" EVERYDAY"
+                                android:textColor="@color/text_background_color"
+                                app:layout_constraintBottom_toBottomOf="@+id/txtTitle1"
+                                app:layout_constraintStart_toEndOf="@+id/txtTitle1"
+                                app:layout_constraintTop_toTopOf="@id/txtTitle1" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/lyTitle2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin10dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/lyTitle1">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/txtTitle3"
+                                style="@style/TextTile18"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Time 6 AM - 11 PM"
+                                android:textColor="@color/white" />
+                        </LinearLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/btnPlayTogether"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/margin40dp"
+                            android:layout_margin="@dimen/margin10dp"
+                            android:background="@drawable/bg_rounded_corner_button"
+                            app:layout_constraintStart_toStartOf="@+id/lyTitle2"
+                            app:layout_constraintTop_toBottomOf="@+id/lyTitle2"
+                            app:layout_constraintEnd_toEndOf="@+id/lyTitle2">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Let's Play Together"
+                                android:textAlignment="textStart"
+                                android:textColor="@color/text_black"
+                                android:textSize="@dimen/text_size_14sp"
+                                style="@style/TextTile18"
+                                android:textStyle="bold"
+                                android:padding="@dimen/margin10dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardTimeTableBooking"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin10dp"
+                    android:padding="@dimen/margin20dp"
+                    app:cardCornerRadius="@dimen/margin20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardTitle">
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/bg4"
+                        android:padding="@dimen/margin20dp">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:gravity="center">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/txtTimeTableBooking"
+                            style="@style/TextTile18"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Time Table for Booking"
+                            android:textColor="@color/text_background_color"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/lyCalendar"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/margin50dp"
+                            android:layout_marginTop="@dimen/margin20dp"
+                            android:background="@drawable/bg_edittext_rounded"
+                            android:paddingStart="@dimen/margin10dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txtTimeTableBooking"
+                            tools:ignore="RtlSymmetry">
+
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/imvCalendar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/margin50dp"
+                                android:src="@drawable/calendar_month_24"
+                                app:layout_constraintBottom_toBottomOf="@+id/lyCalendar"
+                                app:layout_constraintStart_toStartOf="@+id/lyCalendar"
+                                app:layout_constraintTop_toTopOf="@+id/lyCalendar" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/etCalendar"
+                                style="@style/TextInput16"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:background="@null"
+                                android:gravity="start|center"
+                                android:hint="00/00/0000"
+                                android:imeOptions="actionNext"
+                                android:inputType="text"
+                                android:paddingStart="@dimen/margin10dp"
+                                android:paddingEnd="@dimen/margin10dp"
+                                android:textColor="@color/text_black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintStart_toEndOf="@+id/imvCalendar"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:ignore="RtlSymmetry" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/lyTypeSpot"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/margin50dp"
+                            android:layout_marginTop="@dimen/margin10dp"
+                            android:layout_marginBottom="@dimen/margin10dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/lyCalendar"
+                            tools:ignore="RtlSymmetry">
+
+                            <Spinner
+                                android:id="@+id/spnTypeSpot"
+                                style="@style/TextInput16"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/bg_edittext_rounded"
+                                android:imeOptions="actionNext"
+                                android:inputType="text"
+                                android:paddingStart="@dimen/margin10dp"
+                                android:paddingEnd="@dimen/margin10dp"
+                                android:textColor="@color/text_black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:ignore="RtlSymmetry" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/imvGender"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/margin50dp"
+                                android:paddingStart="@dimen/margin15dp"
+                                android:paddingEnd="@dimen/margin15dp"
+                                android:src="@drawable/arrow_drop_down"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <include android:id="@+id/headerCourt"
+                                layout="@layout/header_court"
+                                app:layout_constraintTop_toBottomOf="@+id/lyTypeSpot"/>
+
+                            <RelativeLayout
+                                android:id="@+id/hline"
+                                style="@style/LineHorizontal"
+                                app:layout_constraintStart_toStartOf="@+id/headerCourt"
+                                app:layout_constraintTop_toBottomOf="@+id/headerCourt"
+                                app:layout_constraintEnd_toEndOf="@+id/headerCourt"/>
+
+                            <TableLayout
+                                android:id="@+id/ListOffTable"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin10dp">
+
+                                <TableRow
+                                    android:background="@color/white"
+                                    android:padding="@dimen/margin5dp"
+                                    android:weightSum="7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    tools:ignore="UselessParent">
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                </TableRow>
+
+                                <TableRow
+                                    android:background="@color/white"
+                                    android:padding="@dimen/margin5dp"
+                                    android:weightSum="7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    tools:ignore="UselessParent">
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                </TableRow>
+
+                                <TableRow
+                                    android:background="@color/white"
+                                    android:padding="@dimen/margin5dp"
+                                    android:weightSum="7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    tools:ignore="UselessParent">
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                </TableRow>
+
+                                <TableRow
+                                    android:background="@color/white"
+                                    android:padding="@dimen/margin5dp"
+                                    android:weightSum="7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    tools:ignore="UselessParent">
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                </TableRow>
+
+                                <TableRow
+                                    android:background="@color/white"
+                                    android:padding="@dimen/margin5dp"
+                                    android:weightSum="7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    tools:ignore="UselessParent">
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                </TableRow>
+
+                                <TableRow
+                                    android:background="@color/white"
+                                    android:padding="@dimen/margin5dp"
+                                    android:weightSum="7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    tools:ignore="UselessParent">
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                </TableRow>
+
+                                <TableRow
+                                    android:background="@color/white"
+                                    android:padding="@dimen/margin5dp"
+                                    android:weightSum="7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    tools:ignore="UselessParent">
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                </TableRow>
+
+                                <TableRow
+                                    android:background="@color/white"
+                                    android:padding="@dimen/margin5dp"
+                                    android:weightSum="7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    tools:ignore="UselessParent">
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                </TableRow>
+
+                                <TableRow
+                                    android:background="@color/white"
+                                    android:padding="@dimen/margin5dp"
+                                    android:weightSum="7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    tools:ignore="UselessParent">
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                </TableRow>
+
+                                <TableRow
+                                    android:background="@color/white"
+                                    android:padding="@dimen/margin5dp"
+                                    android:weightSum="7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    tools:ignore="UselessParent">
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                </TableRow>
+
+                                <TableRow
+                                    android:background="@color/white"
+                                    android:padding="@dimen/margin5dp"
+                                    android:weightSum="7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    tools:ignore="UselessParent">
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                </TableRow>
+
+                                <TableRow
+                                    android:background="@color/white"
+                                    android:padding="@dimen/margin5dp"
+                                    android:weightSum="7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    tools:ignore="UselessParent">
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                </TableRow>
+
+                                <TableRow
+                                    android:background="@color/white"
+                                    android:padding="@dimen/margin5dp"
+                                    android:weightSum="7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    tools:ignore="UselessParent">
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                </TableRow>
+
+                                <TableRow
+                                    android:background="@color/white"
+                                    android:padding="@dimen/margin5dp"
+                                    android:weightSum="7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    tools:ignore="UselessParent">
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                </TableRow>
+
+                                <TableRow
+                                    android:background="@color/white"
+                                    android:padding="@dimen/margin5dp"
+                                    android:weightSum="7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    tools:ignore="UselessParent">
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                </TableRow>
+
+                                <TableRow
+                                    android:background="@color/white"
+                                    android:padding="@dimen/margin5dp"
+                                    android:weightSum="7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    tools:ignore="UselessParent">
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                </TableRow>
+
+                                <TableRow
+                                    android:background="@color/white"
+                                    android:padding="@dimen/margin5dp"
+                                    android:weightSum="7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    tools:ignore="UselessParent">
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                    <com.example.grootclub.components.FontFitTextView
+                                        style="@style/ListTextView"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="1"/>
+
+                                </TableRow>
+
+                                <androidx.appcompat.widget.AppCompatButton
+                                    android:id="@+id/btnGetStart"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/margin10dp"
+                                    android:background="@drawable/bg_rounded_corner_button"
+                                    android:text="Get Start"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/text_black" />
+                            </TableLayout>
+
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_margin="@dimen/margin10dp"
+                    android:padding="@dimen/margin20dp"
+                    app:cardCornerRadius="@dimen/margin20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardTimeTableBooking">
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/bg4">
+
+                        <ViewFlipper
+                            android:id="@+id/viewFlipper"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:autoStart="true"
+                            android:flipInterval="3000" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/imvBack"
+                            android:layout_width="@dimen/margin30dp"
+                            android:layout_height="@dimen/margin30dp"
+                            android:layout_marginStart="@dimen/margin5dp"
+                            android:background="@drawable/bg_radius"
+                            android:src="@drawable/ic_arrow_back"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/imvForward"
+                            android:layout_width="@dimen/margin30dp"
+                            android:layout_height="@dimen/margin30dp"
+                            android:layout_marginEnd="@dimen/margin5dp"
+                            android:background="@drawable/bg_radius"
+                            android:src="@drawable/ic_arrow_forward"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardCoach"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin10dp"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/margin20dp"
+                    app:cardCornerRadius="@dimen/margin20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardImage">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/bg4">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/txtTitle"
+                            style="@style/TextTile18"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin10dp"
+                            android:text="Our Specialist"
+                            android:textColor="@color/text_background_color"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rcvCoach"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/margin10dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txtTitle"
+                            tools:listitem="@layout/item_layout_coach" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/btnSeeMore"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/margin40dp"
+                            android:layout_margin="@dimen/margin20dp"
+                            android:background="@drawable/bg_rounded_corner_button"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/rcvCoach">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/txtTitleSeeMore"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="See more"
+                                android:textAlignment="textStart"
+                                android:textColor="@color/text_black"
+                                android:textSize="@dimen/text_size_14sp"
+                                style="@style/TextTile18"
+                                android:textStyle="bold"
+                                android:padding="@dimen/margin10dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardServiceRules"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin10dp"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/margin20dp"
+                    app:cardCornerRadius="@dimen/margin20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardCoach">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/bg4">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/txtTitleServiceRules"
+                            style="@style/TextTile18"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin10dp"
+                            android:text="Service Rules"
+                            android:textColor="@color/text_background_color"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rcvServiceRules"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin10dp"
+                            android:layout_marginBottom="@dimen/margin10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txtTitleServiceRules"
+                            tools:listitem="@layout/item_list_data" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.core.widget.NestedScrollView>
 
     <ProgressBar
         android:id="@+id/progress"
-        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:indeterminate="true"
-        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

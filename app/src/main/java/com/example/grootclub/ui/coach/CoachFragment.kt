@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.grootclub.MainActivity
 import com.example.grootclub.SharedViewModel
+import com.example.grootclub.adapter.CoachItemClickListener
 import com.example.grootclub.data.CoachListModelItem
 import com.example.grootclub.data.Remote.ApiService
 import com.example.grootclub.data.Remote.Repository.Home.CoachRepository
@@ -27,11 +28,6 @@ class CoachFragment : Fragment() {
     private lateinit var sharedViewModel: SharedViewModel
     private lateinit var viewModel: CoachVM
     private lateinit var repository: CoachRepository
-
-    interface CoachItemClickListener {
-        fun onItemClicked(item: CoachListModelItem)
-        fun onReadMoreClicked(item: CoachListModelItem)
-    }
 
     // สร้างเมทอด setHomeItemClickListener เพื่อให้คุณสามารถตั้งค่า Callback จากหน้า Main Activity
     fun setCoachItemClickListener(listener: CoachItemClickListener) {

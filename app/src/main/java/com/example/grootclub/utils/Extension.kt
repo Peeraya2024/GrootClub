@@ -9,7 +9,6 @@ import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import android.widget.ArrayAdapter
 import android.widget.TextView
-import com.example.grootclub.R
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
@@ -87,7 +86,69 @@ fun calculateAge(birthDate: Date): Int {
     return age
 }
 
+fun initDatePickerCurrentDateTomorrow(context: Context, editText: TextView) {
+    Locale.setDefault(Locale("en", "EN"))
+    val calendar = Calendar.getInstance(Locale("en", "EN"))
+    val selectedDate = Calendar.getInstance(Locale("en", "EN"))
+    calendar.add(Calendar.YEAR, -20)
+    val year = calendar[Calendar.YEAR]
+    val month = calendar[Calendar.MONTH]
+    val day = calendar[Calendar.DAY_OF_MONTH]
+
+    val dateSetListener = DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
+        val thaiYear = year
+        val fmDay = if (dayOfMonth < 10) "0${dayOfMonth}" else dayOfMonth
+        val fmMonth = if (month < 9) "0${month + 1}" else month + 1
+        val selectedDateStr = "$fmDay/${fmMonth}/$thaiYear"
+        editText.text = selectedDateStr
+    }
+
+    if (editText.text.isNotEmpty()) {
+        val selectedDateStr = editText.text.toString()
+        val dataSelectedDate =
+            SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).parse(selectedDateStr)
+        if (dataSelectedDate != null) {
+            selectedDate.time = dataSelectedDate
+        }
+    }
+
+    val dialog = DatePickerDialog(context, AlertDialog.THEME_HOLO_LIGHT, dateSetListener, year, month, day)
+
+    // Set maximum date to tomorrow
+    val maxCalendar = Calendar.getInstance().apply { add(Calendar.DAY_OF_MONTH, 1) }
+    dialog.datePicker.maxDate = maxCalendar.timeInMillis
+
+    // Set minimum date to today
+    dialog.datePicker.minDate = calendar.timeInMillis
+
+    val title = "Calendar"
+    val titleText = SpannableString(title)
+    titleText.setSpan(
+        ForegroundColorSpan(Color.BLACK),
+        0,
+        title.length,
+        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+    )
+    dialog.setTitle(titleText)
+
+    dialog.updateDate(
+        selectedDate.get(Calendar.YEAR), selectedDate.get(Calendar.MONTH), selectedDate.get(
+            Calendar.DAY_OF_MONTH
+        )
+    )
+
+    dialog.show()
+}
+
+
 fun setArrayAdapter(context: Context, arrayAdapter: Array<String>) =
+    ArrayAdapter(
+        context,
+        androidx.constraintlayout.widget.R.layout.support_simple_spinner_dropdown_item,
+        arrayAdapter
+    )
+
+fun setListAdapter(context: Context, arrayAdapter: Array<List<String>>) =
     ArrayAdapter(
         context,
         androidx.constraintlayout.widget.R.layout.support_simple_spinner_dropdown_item,
