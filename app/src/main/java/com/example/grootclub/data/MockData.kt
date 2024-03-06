@@ -9,6 +9,11 @@ class MockData {
             return listOf("Tennis", "Table Tennis", "Badminton", "Yoga", "Aerobic", "Table Tennis", "Badminton")
         }
 
+        val nameSpotList = arrayOf(" ", "A-Z", "Z-A")
+
+        val typeSpotList = arrayOf("Tennis", "Table Tennis", "Badminton", "Yoga", "Aerobic")
+
+
         val serviceRules = listOf(
             ServiceRulesData("1", "1. Time Limit", "Each session or round of play is limited to a maximum duration of 1 hour."),
             ServiceRulesData("2", "2. Booking Requirement", "Each session or round of play is limited to a maximum duration of 1 hour."),

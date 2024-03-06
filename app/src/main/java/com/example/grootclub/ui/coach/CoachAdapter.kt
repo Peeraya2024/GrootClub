@@ -12,6 +12,7 @@ import com.example.grootclub.adapter.CoachItemClickListener
 import com.example.grootclub.data.CoachListModelItem
 import com.example.grootclub.databinding.ItemLayoutCoachBinding
 import com.example.grootclub.utils.loadImage
+import com.example.grootclub.utils.mapTypeSpotToValue
 
 class CoachAdapter(
     private val coaches: ArrayList<CoachListModelItem>,
@@ -79,10 +80,10 @@ class CoachAdapter(
         private fun updateCardDetailVisibility() {
             if (isOpen) {
                 binding.cardDetail.visibility = View.VISIBLE
-                binding.btnReadMore.setBackgroundResource(R.drawable.arrow_up)
+                binding.btnReadMore.setBackgroundResource(R.drawable.arrow_down)
             } else {
                 binding.cardDetail.visibility = View.GONE
-                binding.btnReadMore.setBackgroundResource(R.drawable.arrow_down)
+                binding.btnReadMore.setBackgroundResource(R.drawable.arrow_up)
             }
         }
 
@@ -90,7 +91,8 @@ class CoachAdapter(
             currentCoach = coach
             binding.tvNameCoach.text = coach.name
             binding.imv.loadImage(coach.image)
-            binding.tvNameSpot.text = coach.type
+            val nameType = mapTypeSpotToValue(coach.type)
+            binding.tvNameSpot.text = nameType
             binding.tvDetail.text = coach.des
         }
     }

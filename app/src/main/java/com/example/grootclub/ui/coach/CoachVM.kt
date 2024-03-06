@@ -13,7 +13,7 @@ import retrofit2.Response
 
 class CoachVM(private val repository: CoachRepository) : ViewModel() {
     private val _coachList = MutableLiveData<List<CoachListModelItem>>()
-    val coachList: LiveData<List<CoachListModelItem>> = _coachList
+    val allCoachList: LiveData<List<CoachListModelItem>> = _coachList
 
     private val _timeTableBooking = MutableLiveData<List<TimeTableBookingModelItem>>()
     val timeTableBooking: LiveData<List<TimeTableBookingModelItem>> = _timeTableBooking

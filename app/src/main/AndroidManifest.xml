@@ -36,6 +36,9 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.coach.CoachActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.splash.SplashActivity"
             android:exported="true"
             android:label="@string/app_name">

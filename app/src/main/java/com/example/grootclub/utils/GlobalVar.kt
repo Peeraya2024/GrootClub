@@ -29,8 +29,4 @@ val timeTableBooking: String
         Hawk.delete(str)
     }
 
-
-
-    val typeSpotList = arrayOf("Tennis", "Table Tennis", "Badminton", "Yoga", "Aerobic")
-
 }

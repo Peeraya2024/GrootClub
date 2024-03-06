@@ -161,3 +161,14 @@ fun mapTypeSpotToApiValue(typeSpot: String): String {
         else -> "TennisCourt" // default
     }
 }
+
+fun mapTypeSpotToValue(typeSpot: String): String {
+    return when (typeSpot) {
+        "tennis" -> "Tennis"
+        "table_tennis" -> "Table Tennis"
+        "badminton" -> "Badminton"
+        "yoga" -> "Yoga"
+        "aerobic_dance" -> "Aerobic Dance"
+        else -> "" // default
+    }
+}

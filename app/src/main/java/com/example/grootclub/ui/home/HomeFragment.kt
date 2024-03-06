@@ -2,10 +2,8 @@ package com.example.grootclub.ui.home
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
-import android.util.Log
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
@@ -18,9 +16,6 @@ import android.widget.TableRow
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.green
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -35,14 +30,11 @@ import com.example.grootclub.data.ProductModel
 import com.example.grootclub.data.Remote.ApiService
 import com.example.grootclub.data.Remote.Repository.Home.CoachRepository
 import com.example.grootclub.databinding.FragmentHomeBinding
-import com.example.grootclub.databinding.HeaderCourtBinding
+import com.example.grootclub.ui.coach.CoachActivity
 import com.example.grootclub.ui.coach.CoachAdapter
 import com.example.grootclub.ui.coach.CoachVM
 import com.example.grootclub.ui.coach.CoachVMFactory
-import com.example.grootclub.ui.detail.DetailActivity
 import com.example.grootclub.ui.signIn.SignInActivity
-import com.example.grootclub.ui.signup.SignUpActivity
-import com.example.grootclub.utils.GlobalVar
 import com.example.grootclub.utils.SafeClickListener
 import com.example.grootclub.utils.initDatePickerCurrentDateTomorrow
 import com.example.grootclub.utils.mapTypeSpotToApiValue
@@ -70,10 +62,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         fun onItemClicked(item: ProductModel.Stadium)
     }
 
-    // สร้างเมทอด setHomeItemClickListener เพื่อให้คุณสามารถตั้งค่า Callback จากหน้า Main Activity
-    fun setCoachItemClickListener(listener: CoachItemClickListener) {
-        coachItemClickListener = listener
-    }
     override fun prepareView(savedInstanceState: Bundle?) {
         sharedViewModel = ViewModelProvider(requireActivity())[SharedViewModel::class.java]
         repository = CoachRepository(ApiService().getService())
@@ -139,13 +127,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             initDatePickerCurrentDateTomorrow(this.requireContext(), binding.etCalendar)
         })
 
-        binding.spnTypeSpot.adapter = setArrayAdapter(requireContext(), GlobalVar.typeSpotList)
+        binding.spnTypeSpot.adapter = setArrayAdapter(requireContext(), MockData.typeSpotList)
 
         binding.spnTypeSpot.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?, view: View?, position: Int, id: Long
             ) {
-                if (binding.etCalendar.text.trim().isNotEmpty() && binding.spnTypeSpot.adapter != null){
+                if (binding.etCalendar.text.trim()
+                        .isNotEmpty() && binding.spnTypeSpot.adapter != null
+                ) {
 
                     val parts = binding.etCalendar.text.trim().split("/")
                     val day = parts[0]
@@ -153,7 +143,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                     val year = parts[2]
                     // สร้างรูปแบบใหม่ "yyyy-MM-dd"
                     val formattedDate = "$year-$month-$day"
-                    val selectedTypeSpot = GlobalVar.typeSpotList[position]
+                    val selectedTypeSpot = MockData.typeSpotList[position]
                     positionTypeSpot = position
                     // แปลงค่าเป็นรูปแบบที่คาดหวัง
                     val typeSpot = mapTypeSpotToApiValue(selectedTypeSpot)
@@ -173,7 +163,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 val i = Intent(requireContext(), SignInActivity::class.java)
                 startActivity(i)
             } else {
-                Toast.makeText(this.requireContext(), "ยังไม่ทำจ้า แม่ป้าสาวส่ำน้อย", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this.requireContext(),
+                    "ยังไม่ทำจ้า แม่ป้าสาวส่ำน้อย",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
 
@@ -182,18 +176,23 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 val i = Intent(requireContext(), SignInActivity::class.java)
                 startActivity(i)
             } else {
-                Toast.makeText(this.requireContext(), "ยังไม่ทำจ้า แม่ป้าสาวส่ำน้อย", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this.requireContext(),
+                    "ยังไม่ทำจ้า แม่ป้าสาวส่ำน้อย",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
 
         binding.btnSeeMore.setOnClickListener {
-            Toast.makeText(this.requireContext(), "See More", Toast.LENGTH_SHORT).show()
+            val i = Intent(this.requireContext(), CoachActivity::class.java)
+            startActivity(i)
         }
     }
 
     @SuppressLint("NotifyDataSetChanged", "SetTextI18n")
     private fun setObserveData() {
-        viewModel.coachList.observe(viewLifecycleOwner) { coachList ->
+        viewModel.allCoachList.observe(viewLifecycleOwner) { coachList ->
             hideProgressDialog()
             val layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
@@ -229,16 +228,31 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                         setTextColor(ContextCompat.getColor(requireContext(), R.color.text_black))
                         setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
                         textAlignment = View.TEXT_ALIGNMENT_CENTER
-                        setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.text_background_color))
+                        setBackgroundColor(
+                            ContextCompat.getColor(
+                                requireContext(),
+                                R.color.text_background_color
+                            )
+                        )
                     })
                     for (i in 1..6) {
                         addView(TextView(requireContext()).apply {
                             text = "Court $i"
                             setTypeface(null, Typeface.BOLD)
-                            setTextColor(ContextCompat.getColor(requireContext(), R.color.text_black))
+                            setTextColor(
+                                ContextCompat.getColor(
+                                    requireContext(),
+                                    R.color.text_black
+                                )
+                            )
                             setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
                             textAlignment = View.TEXT_ALIGNMENT_CENTER
-                            setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.gray_e3))
+                            setBackgroundColor(
+                                ContextCompat.getColor(
+                                    requireContext(),
+                                    R.color.gray_e3
+                                )
+                            )
                         })
                     }
                 }
@@ -252,7 +266,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                     val timeTextView = TextView(requireContext()).apply {
                         text = "${data[0].slots[i].startTime} - ${data[0].slots[i].endTime}"
                         setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
-                        setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.gray_e3))
+                        setBackgroundColor(
+                            ContextCompat.getColor(
+                                requireContext(),
+                                R.color.gray_e3
+                            )
+                        )
                     }
 
                     //ทำให้แต่ละช่องมีระยะห่าง
@@ -268,24 +287,41 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                             val courtStatusTextView = TextView(requireContext()).apply {
                                 if (isBooked) {
                                     text = "Booked"
-                                    setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.gray_e3))
+                                    setBackgroundColor(
+                                        ContextCompat.getColor(
+                                            requireContext(),
+                                            R.color.gray_e3
+                                        )
+                                    )
                                 } else {
                                     text = "Available"
-                                    setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.text_background_color))
+                                    setBackgroundColor(
+                                        ContextCompat.getColor(
+                                            requireContext(),
+                                            R.color.text_background_color
+                                        )
+                                    )
                                 }
                                 setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
                             }
-                            val marginLayoutParams = marginLayoutParams(margin, margin, margin, margin)
+                            val marginLayoutParams =
+                                marginLayoutParams(margin, margin, margin, margin)
                             courtStatusTextView.layoutParams = marginLayoutParams
                             slotRow.addView(courtStatusTextView)
                         } else {
                             // ให้เพิ่มช่องที่ไม่มีข้อมูลเป็นสีขาว
                             val emptyTextView = TextView(requireContext()).apply {
                                 text = ""
-                                setBackgroundColor(ContextCompat.getColor(requireContext(), android.R.color.white))
+                                setBackgroundColor(
+                                    ContextCompat.getColor(
+                                        requireContext(),
+                                        android.R.color.white
+                                    )
+                                )
                             }
 
-                            val marginLayoutParams = marginLayoutParams(margin, margin, margin, margin)
+                            val marginLayoutParams =
+                                marginLayoutParams(margin, margin, margin, margin)
                             emptyTextView.layoutParams = marginLayoutParams
                             slotRow.addView(emptyTextView)
                         }

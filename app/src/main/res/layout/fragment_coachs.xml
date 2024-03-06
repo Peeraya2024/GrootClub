@@ -1,32 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/bgApp"
-    tools:context=".ui.coach.CoachFragment">
+    tools:context=".ui.coach.CoachActivity">
+
+    <include
+        android:id="@+id/appBarMain"
+        layout="@layout/app_bar_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/lySpot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarMain">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/lySpot1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarMain">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnTennis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_rounded_corner_button"
+                android:text="Tennis" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnBadminton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin10dp"
+                android:background="@drawable/bg_rounded_corner_button"
+                android:padding="@dimen/margin10dp"
+                android:text="Badminton" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnYoga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_rounded_corner_button"
+                android:text="Yoga" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/lySpot2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarMain">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnTableTennis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_rounded_corner_button"
+                android:padding="@dimen/margin10dp"
+                android:text="Table Tennis" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnAerobic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin10dp"
+                android:background="@drawable/bg_rounded_corner_button"
+                android:padding="@dimen/margin10dp"
+                android:text="Aerobic Dance" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_rounded_corner_button"
+                android:text="All" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/spnSortSpot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lySpot"/>
 
     <!-- TODO: Update blank fragment layout -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcv"
-        tools:listitem="@layout/item_layout_coach"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="0dp"
+        android:paddingStart="@dimen/margin30dp"
+        android:paddingEnd="@dimen/margin30dp"
+        android:paddingBottom="@dimen/margin10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
-    <ProgressBar
-        android:id="@+id/progress"
-        android:visibility="gone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:indeterminate="true"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:layout_marginTop="@dimen/margin10dp"
+        app:layout_constraintTop_toBottomOf="@+id/spnSortSpot"
+        tools:listitem="@layout/item_layout_coach" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
