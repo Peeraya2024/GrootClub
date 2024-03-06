@@ -15,6 +15,7 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.PUT
+import retrofit2.http.Path
 
 interface Service {
     @POST("/users/login")
@@ -33,8 +34,13 @@ interface Service {
     @PUT("/users/updateuser/65b12e7b9ee95b2558e0b4fc")
     suspend fun updateUser(@Body reqUpdateProfile: ReqUpdateProfile): Response<RespUpdateUser>
 
-    @GET("/tennisCourt/2024-02-27")
-    suspend fun getTimeTableBooking(): TimeTableBookingModel
-//    @GET(GlobalVar.timeTableBooking)
-//    suspend fun getTimeTableBooking(): Response<TimeTableBookingModel>
+//    @GET("/tennisCourt/2024-02-27")
+//    suspend fun getTimeTableBooking(): TimeTableBookingModel
+
+    @GET("/{typesPorts}/{date}")
+    suspend fun getTimeTableBooking(
+        @Path("typesPorts") typesPorts: String,
+        @Path("date") date: String
+    ): TimeTableBookingModel
+
 }

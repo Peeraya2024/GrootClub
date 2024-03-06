@@ -31,10 +31,10 @@ class CoachVM(private val repository: CoachRepository) : ViewModel() {
         }
     }
 
-    fun fetchTimeTableBooking() {
+    fun fetchTimeTableBooking(typeSport: String, date: String) {
         viewModelScope.launch {
             try {
-                val result = repository.getTimeTableBooking()
+                val result = repository.getTimeTableBooking(typeSport, date)
                 _timeTableBooking.postValue(result)
             } catch (e: Exception) {
                 _timeTableBooking.postValue(emptyList())

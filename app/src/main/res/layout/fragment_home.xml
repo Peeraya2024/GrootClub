@@ -245,22 +245,16 @@
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
-                            <include android:id="@+id/headerCourt"
-                                layout="@layout/header_court"
-                                app:layout_constraintTop_toBottomOf="@+id/lyTypeSpot"/>
-
-                            <RelativeLayout
-                                android:id="@+id/hline"
-                                style="@style/LineHorizontal"
-                                app:layout_constraintStart_toStartOf="@+id/headerCourt"
-                                app:layout_constraintTop_toBottomOf="@+id/headerCourt"
-                                app:layout_constraintEnd_toEndOf="@+id/headerCourt"/>
+                            <HorizontalScrollView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
 
                             <TableLayout
                                 android:id="@+id/ListOffTable"
+                                android:visibility="gone"
+                                android:background="@color/white"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/margin10dp">
+                                android:layout_height="wrap_content">
 
                                 <TableRow
                                     android:background="@color/white"
@@ -1026,17 +1020,19 @@
                                         android:layout_weight="1"/>
 
                                 </TableRow>
-
-                                <androidx.appcompat.widget.AppCompatButton
-                                    android:id="@+id/btnGetStart"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/margin10dp"
-                                    android:background="@drawable/bg_rounded_corner_button"
-                                    android:text="Get Start"
-                                    android:textStyle="bold"
-                                    android:textColor="@color/text_black" />
                             </TableLayout>
+
+                            </HorizontalScrollView>
+
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/btnGetStart"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin10dp"
+                                android:background="@drawable/bg_rounded_corner_button"
+                                android:text="Get Start"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_black" />
 
                         </LinearLayout>
 

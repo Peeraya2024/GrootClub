@@ -25,9 +25,9 @@ class CoachRepository(private val service: Service) {
         }
     }
 
-    suspend fun getTimeTableBooking(): List<TimeTableBookingModelItem> {
+    suspend fun getTimeTableBooking(typeSport: String, date: String): List<TimeTableBookingModelItem> {
         return try {
-            val response = service.getTimeTableBooking()
+            val response = service.getTimeTableBooking(typeSport, date)
             if (response.isNotEmpty()) {
                 response
             } else {

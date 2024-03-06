@@ -31,6 +31,6 @@ val timeTableBooking: String
 
 
 
-    val typeSpotList = arrayOf("Tennis", "Table Tennis", "Badminton", "Yoga", "Aerobic", "Table Tennis", "Badminton")
+    val typeSpotList = arrayOf("Tennis", "Table Tennis", "Badminton", "Yoga", "Aerobic")
 
 }
