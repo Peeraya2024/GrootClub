@@ -4,17 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
     tools:context=".ui.booking.BookingFragment">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/bg_screen"
-        android:layout_width="match_parent"
-        android:layout_height="380dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/bg_screen">
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     <TextView
         android:id="@+id/textView2"
@@ -38,84 +29,5 @@
         android:text="Step 1 : Choose Sport"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bg_screen"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:listitem="@layout/item_sport"
-        android:orientation="horizontal"
-        />
-
-<!--    <LinearLayout-->
-<!--        android:gravity="center"-->
-<!--        android:layout_marginTop="36dp"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textView3"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="vertical"-->
-<!--        tools:layout_editor_absoluteX="0dp"-->
-<!--        tools:layout_editor_absoluteY="0dp">-->
-
-
-<!--        <androidx.appcompat.widget.AppCompatButton-->
-<!--            android:id="@+id/button_tennis"-->
-<!--            android:layout_width="150dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:background="@drawable/gradient"-->
-<!--            android:text="Tennis"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:layout_marginTop="@dimen/margin15dp"-->
-<!--             />-->
-
-<!--        <androidx.appcompat.widget.AppCompatButton-->
-<!--            android:id="@+id/button_badminton"-->
-<!--            android:layout_width="150dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:background="@drawable/gradient"-->
-<!--            android:text="Badminton"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:layout_marginTop="@dimen/margin20dp"-->
-
-<!--            />-->
-
-<!--        <androidx.appcompat.widget.AppCompatButton-->
-<!--            android:id="@+id/button_tabletenis"-->
-<!--            android:layout_width="150dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:background="@drawable/gradient"-->
-<!--            android:text="Table tenis"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:layout_marginTop="@dimen/margin20dp"-->
-<!--            />-->
-
-<!--        <androidx.appcompat.widget.AppCompatButton-->
-<!--            android:id="@+id/button_yoga"-->
-<!--            android:layout_width="150dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:background="@drawable/gradient"-->
-<!--            android:text="Yoga"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:layout_marginTop="@dimen/margin20dp"-->
-<!--            />-->
-
-<!--        <androidx.appcompat.widget.AppCompatButton-->
-<!--            android:id="@+id/button_aerobic"-->
-<!--            android:layout_width="150dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:background="@drawable/gradient"-->
-<!--            android:text="Aerobic"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:layout_marginTop="@dimen/margin20dp"-->
-<!--            />-->
-
-
-
-<!--    </LinearLayout>-->
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
