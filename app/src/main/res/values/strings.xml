@@ -141,23 +141,25 @@ By using our services, you consent to the terms of this Privacy Policy and the c
     <string name="under_line_sign_up"><u>Sign Up</u></string>
 
                  <!--    About Us  -->
+    <string name="we_are_who"><i>We are who bring happiness to you. </i></string>
+    <string name="where_Passion"><b>" Where Passion Meets Fun and Healthy ".</b></string>
     <string name="at_our_sport_club">At our sport club, we are more than just a club we are a community of like-minded individuals brought together by our shared passion for sports, fitness, and a healthy lifestyle. Here's a glimpse into what we do, what we serve, and what you can expect from this extraordinary place.</string>
-    <string name="what_We_Do"><b>What We Do :</b></string>
+    <string name="what_We_Do"><b>What We Do ?</b></string>
     <string name="diverse_Sporting_Activities"><i> Diverse Sporting Activities : </i> </string>
-    <string name="ee_offer_a_wide"> We offer a wide array of sporting activities to cater to all fitness levels and interests. Whether you're into tennis, badminton, swimming, yoga, or the energetic rhythms of aerobic dance, we have something for everyone.</string>
-    <string name="wxpert_Guidance"><i> Expert Guidance : </i> </string>
+    <string name="we_offer_a_wide"> We offer a wide array of sporting activities to cater to all fitness levels and interests. Whether you're into tennis, badminton, swimming, yoga, or the energetic rhythms of aerobic dance, we have something for everyone.</string>
+    <string name="expert_Guidance"><i> Expert Guidance : </i> </string>
     <string name="our_experienced">Our experienced coaches and instructors are dedicated to helping you achieve your fitness goals. They provide expert guidance, personalized training programs, and tips to enhance your skills.</string>
     <string name="community_Building"><i> Community Building : </i> </string>
     <string name="beyond_the_physical">Beyond the physical aspect, we believe in the power of community. We foster a welcoming and supportive environment where you can meet like-minded individuals, make friends, and grow together on your fitness journey.</string>
 
-    <string name="what_We_Serve"><b>What We Serve:</b></string>
+    <string name="what_We_Serve"><b>What We Serve ?</b></string>
     <string name="State_of_the_Art_Facilities"><i>State-of-the-Art Facilities :</i></string>
     <string name="Our_club_boasts">Our club boasts top-notch facilities equipped with the latest technology and safety measures. From well-maintained tennis courts to pristine swimming pools, we provide the ideal backdrop for your fitness endeavors.</string>
     <string name="Flexible_Membership_Options"><i>Flexible Membership Options :</i></string>
     <string name="We_offer_flexible">We offer flexible membership options tailored to your needs. Whether you're a committed athlete or simply looking for a place to unwind, we have a membership plan that suits you.</string>
     <string name="Health_and_Wellness"><i> Health and Wellness :</i></string>
     <string name="At_Our_Sport_Club">At Our Sport Club, we prioritize your well-being. Our on-site amenities include health-focused services like nutrition consultations, physiotherapy, and relaxation areas to help you unwind after a rigorous workout.</string>
-    <string name="What_You_Get_from"><b>What You Get from This Place:</b></string>
+    <string name="What_You_Get_from"><b>What You Get from This Place ?</b></string>
     <string name="Fitness_and_Fun"><i>Fitness and Fun :</i></string>
     <string name="Expect_a_place">Expect a place where you can get fit while having a blast. Whether you're sweating it out on the court or finding your inner peace during a yoga session, our club is where fitness becomes enjoyable.</string>
     <string name="Skill_Enhancement"><i>Skill Enhancement : </i></string>

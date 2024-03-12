@@ -7,10 +7,19 @@
     android:background="@drawable/background_gradient"
     tools:context=".ui.slideshow.SlideshowFragment">
 
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-
-
-
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical">
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="match_parent"
@@ -62,35 +71,348 @@
 
             </LinearLayout>
 
-
-
-
-
-<!--            <TextView-->
-<!--                android:id="@+id/textView4"-->
-<!--                style="@style/TextDetail16"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text=" Where Passion Meets Fun and Healthy .  "-->
-<!--                android:textColor="@color/white"-->
-<!--                tools:layout_editor_absoluteX="20dp"-->
-<!--                tools:layout_editor_absoluteY="59dp" />-->
-
             <TextView
                 android:id="@+id/textView4"
                 style="@style/TextDetail16"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/at_our_sport_club"
+                android:layout_marginTop="20dp"
+                android:textAlignment="center"
+                android:text="@string/we_are_who"
                 android:textColor="@color/white"
-                tools:layout_editor_absoluteX="20dp"
-                tools:layout_editor_absoluteY="59dp" />
+                app:layout_constraintTop_toBottomOf="@+id/lyTitle1"
+                tools:layout_editor_absoluteX="24dp" />
 
+            <TextView
+                android:id="@+id/wherepassion"
+                style="@style/TextDetail16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textAlignment="center"
+                android:text="@string/where_Passion"
+                android:textColor="@color/text_background_color"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                tools:layout_editor_absoluteX="24dp" />
+
+            <TextView
+                android:id="@+id/At_our_spor_tclub"
+                style="@style/TextDetail14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="@string/at_our_sport_club"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/wherepassion"
+                tools:layout_editor_absoluteX="20dp" />
+
+            <ImageView
+                android:id="@+id/whatwedo"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_margin="@dimen/margin20dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/whatwedo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/At_our_spor_tclub" />
+
+            <TextView
+                android:id="@+id/what_We_Do"
+                style="@style/TextDetail16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@color/text_background_color"
+                android:text="@string/what_We_Do"
+                app:layout_constraintTop_toBottomOf="@+id/whatwedo"
+                tools:layout_editor_absoluteX="24dp" />
+
+            <TextView
+                android:id="@+id/diverse_Sporting_Activities"
+                style="@style/TextDetail16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/text_background_color"
+                android:text="@string/diverse_Sporting_Activities"
+                app:layout_constraintTop_toBottomOf="@+id/what_We_Do"
+                tools:layout_editor_absoluteX="24dp" />
+            <TextView
+                android:id="@+id/we_offer_a_wide"
+                style="@style/TextDetail14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:text="@string/we_offer_a_wide"
+                app:layout_constraintTop_toBottomOf="@+id/diverse_Sporting_Activities"
+                tools:layout_editor_absoluteX="24dp" />
+            <TextView
+                android:id="@+id/expert_Guidance"
+                style="@style/TextDetail16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/text_background_color"
+                android:text="@string/expert_Guidance"
+                app:layout_constraintTop_toBottomOf="@+id/we_offer_a_wide"
+                tools:layout_editor_absoluteX="24dp" />
+            <TextView
+                android:id="@+id/our_experienced"
+                style="@style/TextDetail14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:text="@string/our_experienced"
+                app:layout_constraintTop_toBottomOf="@+id/expert_Guidance"
+                tools:layout_editor_absoluteX="24dp" />
+            <TextView
+                android:id="@+id/community_Building"
+                style="@style/TextDetail16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/text_background_color"
+                android:text="@string/community_Building"
+                app:layout_constraintTop_toBottomOf="@+id/our_experienced"
+                tools:layout_editor_absoluteX="24dp" />
+            <TextView
+                android:id="@+id/beyond_the_physical"
+                style="@style/TextDetail14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:text="@string/beyond_the_physical"
+                app:layout_constraintTop_toBottomOf="@+id/community_Building"
+                tools:layout_editor_absoluteX="24dp" />
+
+            <ImageView
+                android:id="@+id/whatweserve"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_margin="@dimen/margin20dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/whatweserve"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/beyond_the_physical" />
+
+            <TextView
+                android:id="@+id/what_We_Serve"
+                style="@style/TextDetail16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@color/text_background_color"
+                android:text="@string/what_We_Serve"
+                app:layout_constraintTop_toBottomOf="@+id/whatweserve"
+                tools:layout_editor_absoluteX="24dp" />
+            <TextView
+                android:id="@+id/State_of_the_Art_Facilities"
+                style="@style/TextDetail16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/text_background_color"
+                android:text="@string/State_of_the_Art_Facilities"
+                app:layout_constraintTop_toBottomOf="@+id/what_We_Serve"
+                tools:layout_editor_absoluteX="24dp" />
+            <TextView
+                android:id="@+id/Our_club_boasts"
+                style="@style/TextDetail14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:text="@string/Our_club_boasts"
+                app:layout_constraintTop_toBottomOf="@+id/State_of_the_Art_Facilities"
+                tools:layout_editor_absoluteX="24dp" />
+            <TextView
+                android:id="@+id/Flexible_Membership_Options"
+                style="@style/TextDetail16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/text_background_color"
+                android:text="@string/Flexible_Membership_Options"
+                app:layout_constraintTop_toBottomOf="@+id/Our_club_boasts"
+                tools:layout_editor_absoluteX="24dp" />
+            <TextView
+                android:id="@+id/We_offer_flexible"
+                style="@style/TextDetail14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:text="@string/We_offer_flexible"
+                app:layout_constraintTop_toBottomOf="@+id/Flexible_Membership_Options"
+                tools:layout_editor_absoluteX="24dp" />
+            <TextView
+                android:id="@+id/Health_and_Wellness"
+                style="@style/TextDetail16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/text_background_color"
+                android:text="@string/Health_and_Wellness"
+                app:layout_constraintTop_toBottomOf="@+id/We_offer_flexible"
+                tools:layout_editor_absoluteX="24dp" />
+
+            <TextView
+                android:id="@+id/At_Our_Sport_Club"
+                style="@style/TextDetail14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="@string/At_Our_Sport_Club"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/Health_and_Wellness"
+                tools:layout_editor_absoluteX="20dp" />
+
+            <ImageView
+                android:id="@+id/whatyougetfrom"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_margin="@dimen/margin20dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/whatyougetfrom"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/At_Our_Sport_Club" />
+            <TextView
+                android:id="@+id/What_You_Get_from"
+                style="@style/TextDetail16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@color/text_background_color"
+                android:text="@string/What_You_Get_from"
+                app:layout_constraintTop_toBottomOf="@+id/whatyougetfrom"
+                tools:layout_editor_absoluteX="24dp" />
+            <TextView
+                android:id="@+id/Fitness_and_Fun"
+                style="@style/TextDetail16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/text_background_color"
+                android:text="@string/Fitness_and_Fun"
+                app:layout_constraintTop_toBottomOf="@+id/What_You_Get_from"
+                tools:layout_editor_absoluteX="24dp" />
+            <TextView
+                android:id="@+id/Expect_a_place"
+                style="@style/TextDetail14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="@string/Expect_a_place"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/Fitness_and_Fun"
+                tools:layout_editor_absoluteX="20dp" />
+
+            <TextView
+                android:id="@+id/Skill_Enhancement"
+                style="@style/TextDetail16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/text_background_color"
+                android:text="@string/Skill_Enhancement"
+                app:layout_constraintTop_toBottomOf="@+id/Expect_a_place"
+                tools:layout_editor_absoluteX="24dp" />
+
+            <TextView
+                android:id="@+id/Our_club_is"
+                style="@style/TextDetail14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="@string/Our_club_is"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/Skill_Enhancement"
+                tools:layout_editor_absoluteX="20dp" />
+
+            <TextView
+                android:id="@+id/A_Healthier_Lifestyle"
+                style="@style/TextDetail16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/text_background_color"
+                android:text="@string/A_Healthier_Lifestyle"
+                app:layout_constraintTop_toBottomOf="@+id/Our_club_is"
+                tools:layout_editor_absoluteX="24dp" />
+
+            <TextView
+                android:id="@+id/Joining_our_Sport"
+                style="@style/TextDetail14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="@string/Joining_our_Sport"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/A_Healthier_Lifestyle"
+                tools:layout_editor_absoluteX="20dp" />
+
+            <TextView
+                android:id="@+id/New_Connections"
+                style="@style/TextDetail16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/text_background_color"
+                android:text="@string/New_Connections"
+                app:layout_constraintTop_toBottomOf="@+id/Joining_our_Sport"
+                tools:layout_editor_absoluteX="24dp" />
+
+            <TextView
+                android:id="@+id/Expect_to_meet"
+                style="@style/TextDetail14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="@string/Expect_to_meet"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/New_Connections"
+                tools:layout_editor_absoluteX="20dp" />
+
+            <TextView
+                android:id="@+id/In_summary"
+                style="@style/TextDetail14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textAlignment="textStart"
+                android:text="@string/In_summary"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/Expect_to_meet"
+                tools:layout_editor_absoluteX="24dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.cardview.widget.CardView>
-
+        </androidx.cardview.widget.CardView>
+       </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
