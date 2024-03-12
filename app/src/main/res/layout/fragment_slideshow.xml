@@ -7,38 +7,90 @@
     android:background="@drawable/background_gradient"
     tools:context=".ui.slideshow.SlideshowFragment">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/imvHead"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:src="@drawable/logo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/txtOurSupport"
-        android:text="@string/our_support"
-        android:textColor="@color/text_slate_700"
-        android:textSize="@dimen/text_size_18sp"
-        android:textStyle="bold"
-        android:textAlignment="center"
+
+
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_margin="@dimen/margin20dp"
+        android:scaleType="centerCrop"
+        android:background="@drawable/good"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin20dp"
+        android:layout_margin="@dimen/margin20dp"
+        app:cardCornerRadius="@dimen/margin20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imvHead"/>
+        app:layout_constraintTop_toBottomOf="@id/imageView3"
+        >
 
-    <include
-        android:id="@+id/itemCardView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/item_card_stadium"
-        android:layout_margin="@dimen/margin50dp"
-        android:layout_marginTop="@dimen/margin20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtOurSupport"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg4"
+            android:padding="@dimen/margin20dp">
+
+            <LinearLayout
+                android:id="@+id/lyTitle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtTitle2"
+                    style="@style/TextTile24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text=" Who are we? "
+                    android:textColor="@color/text_background_color"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtTitle1"
+                    app:layout_constraintStart_toEndOf="@+id/txtTitle1"
+                    app:layout_constraintTop_toTopOf="@id/txtTitle1" />
+
+            </LinearLayout>
+
+
+
+
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView4"-->
+<!--                style="@style/TextDetail16"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text=" Where Passion Meets Fun and Healthy .  "-->
+<!--                android:textColor="@color/white"-->
+<!--                tools:layout_editor_absoluteX="20dp"-->
+<!--                tools:layout_editor_absoluteY="59dp" />-->
+
+            <TextView
+                android:id="@+id/textView4"
+                style="@style/TextDetail16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/at_our_sport_club"
+                android:textColor="@color/white"
+                tools:layout_editor_absoluteX="20dp"
+                tools:layout_editor_absoluteY="59dp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

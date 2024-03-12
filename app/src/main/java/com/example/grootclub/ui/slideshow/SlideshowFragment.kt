@@ -43,9 +43,8 @@ class SlideshowFragment : Fragment() {
     }
 
     private fun setOnClicks() {
-        binding.itemCardView.cardStadium.setOnClickListener {
-            Toast.makeText(requireContext(), "โหลลลล", Toast.LENGTH_SHORT).show()
-        }
+
+
     }
 
     override fun onDestroyView() {
