@@ -98,4 +98,23 @@
         <item name="android:background">#484848</item>
     </style>
 
+    <style name="ButtonBack" >
+        <item name="android:textSize">@dimen/text_size_14sp</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@drawable/bg_radius_stoke_back</item>
+        <item name="android:layout_width">79dp</item>
+        <item name="android:layout_height">31dp</item>
+        <item name="android:elevation">3dp</item>
+    </style>
+    <style name="ButtonNext" >
+        <item name="android:textSize">@dimen/text_size_14sp</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@drawable/bg_radius_stoke_next</item>
+        <item name="android:layout_width">79dp</item>
+        <item name="android:layout_height">31dp</item>
+        <item name="android:elevation">3dp</item>
+    </style>
+
 </resources>

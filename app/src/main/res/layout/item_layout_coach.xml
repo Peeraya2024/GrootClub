@@ -39,7 +39,6 @@
             android:id="@+id/imv"
             android:layout_width="wrap_content"
             android:layout_height="400dp"
-            android:background="@color/white"
             android:scaleType="fitCenter"
             android:src="@drawable/logo"
             app:layout_constraintEnd_toEndOf="parent"

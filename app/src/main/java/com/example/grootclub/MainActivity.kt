@@ -16,15 +16,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.grootclub.components.dialog.MyDialog
-import com.example.grootclub.components.navigator.Navigator
 import com.example.grootclub.data.ProductModel
 import com.example.grootclub.databinding.ActivityMainBinding
-import com.example.grootclub.ui.detail.DetailActivity
 import com.example.grootclub.ui.home.HomeFragment
 import com.example.grootclub.ui.signIn.SignInActivity
 import com.example.grootclub.ui.signup.SignUpActivity
-import com.example.grootclub.ui.slideshow.SlideshowFragment
 import com.example.grootclub.utils.sharedpreferences.SharedPreference
 
 class MainActivity : AppCompatActivity(), HomeFragment.HomeItemClickListener {
@@ -61,21 +57,21 @@ class MainActivity : AppCompatActivity(), HomeFragment.HomeItemClickListener {
     }
 
     private fun observeData() {
-        sharedViewModel.getSelectedCoach().observe(this, Observer { data ->
-            // ทำสิ่งที่คุณต้องการเมื่อมีการเลือก Stadium ใน HomeFragment
-            // stadium คือข้อมูลที่ถูกส่งมาจาก HomeFragment
-            if (sharedPref.isLogIn()) {
-                Toast.makeText(
-                    this,
-                    "ยังไม่บ่ทันเฮ็ดจ้า พส. ${data.name}",
-                    Toast.LENGTH_SHORT
-                ).show()
-            } else {
-                Toast.makeText(this, "Please log in", Toast.LENGTH_SHORT).show()
-                val i = Intent(applicationContext, SignInActivity::class.java)
-                startActivity(i)
-            }
-        })
+//        sharedViewModel.getSelectedCoach().observe(this, Observer { data ->
+//            // ทำสิ่งที่คุณต้องการเมื่อมีการเลือก Stadium ใน HomeFragment
+//            // stadium คือข้อมูลที่ถูกส่งมาจาก HomeFragment
+//            if (sharedPref.isLogIn()) {
+//                Toast.makeText(
+//                    this,
+//                    "ยังไม่บ่ทันเฮ็ดจ้า พส. ${data.name}",
+//                    Toast.LENGTH_SHORT
+//                ).show()
+//            } else {
+//                Toast.makeText(this, "Please log in", Toast.LENGTH_SHORT).show()
+//                val i = Intent(applicationContext, SignInActivity::class.java)
+//                startActivity(i)
+//            }
+//        })
     }
 
     private fun initToolBar() {

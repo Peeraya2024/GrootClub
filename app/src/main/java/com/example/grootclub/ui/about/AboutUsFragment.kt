@@ -1,21 +1,15 @@
-package com.example.grootclub.ui.slideshow
+package com.example.grootclub.ui.about
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.example.grootclub.databinding.FragmentSlideshowBinding
 
-class SlideshowFragment : Fragment() {
+class AboutUsFragment : Fragment() {
 
     private var _binding: FragmentSlideshowBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -33,14 +27,7 @@ class SlideshowFragment : Fragment() {
         return root
     }
 
-    private fun initView() {
-        val slideshowViewModel = ViewModelProvider(this)[SlideshowViewModel::class.java]
-//        val textView: TextView = binding.txtOurSupport
-//        slideshowViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
-
-    }
+    private fun initView() {}
 
     private fun setOnClicks() {
 

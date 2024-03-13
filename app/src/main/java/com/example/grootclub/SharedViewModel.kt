@@ -8,7 +8,8 @@ import com.example.grootclub.data.ProductModel
 
 class SharedViewModel : ViewModel() {
     private val selectedStadium = MutableLiveData<ProductModel.Stadium>()
-    private val selectedCoach = MutableLiveData<CoachListModelItem>()
+    private val selectedCoach = MutableLiveData<List<CoachListModelItem>>()
+    private val selectedSport = MutableLiveData<String>()
 
     fun selectStadium(stadium: ProductModel.Stadium) {
         selectedStadium.value = stadium
@@ -18,10 +19,17 @@ class SharedViewModel : ViewModel() {
         return selectedStadium
     }
 
-    fun selectCoach(coach: CoachListModelItem) {
+    fun selectCoach(coach: List<CoachListModelItem>) {
         selectedCoach.value = coach
     }
-    fun getSelectedCoach(): LiveData<CoachListModelItem> {
+    fun getSelectedCoach(): LiveData<List<CoachListModelItem>> {
         return selectedCoach
+    }
+
+    fun setSelectedSport(sport: String) {
+        selectedSport.value = sport
+    }
+    fun getSelectedSport(): MutableLiveData<String> {
+        return selectedSport
     }
 }

@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient">
+
+    <include
+        android:id="@+id/appBarMain"
+        layout="@layout/app_bar_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtStep1"
+        android:text="STEP 1 : Choose Sport"
+        style="@style/TextTile24"
+        android:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarMain"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtStep1"
+        app:layout_constraintBottom_toBottomOf="parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginStart="@dimen/margin30dp"
+        android:layout_marginEnd="@dimen/margin30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarMain"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btnTennis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin30dp"
+            android:layout_marginTop="@dimen/margin20dp"
+            android:background="@drawable/bg_rounded_corner_button"
+            app:layout_constraintStart_toStartOf="@+id/lyTitle2"
+            app:layout_constraintTop_toBottomOf="@+id/lyTitle2"
+            app:layout_constraintEnd_toEndOf="@+id/lyTitle2">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imvSport"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@drawable/ic_launcher_background"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sport1_tennis"
+                android:textAlignment="textStart"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_size_14sp"
+                style="@style/TextTile18"
+                android:textStyle="bold"
+                android:layout_marginStart="@dimen/margin20dp"
+                app:layout_constraintStart_toEndOf="@+id/imvSport"
+                app:layout_constraintBottom_toBottomOf="@id/imvSport"
+                app:layout_constraintTop_toTopOf="@+id/imvSport"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btnBadminton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin30dp"
+            android:layout_marginTop="@dimen/margin20dp"
+            android:background="@drawable/bg_rounded_corner_button"
+            app:layout_constraintStart_toStartOf="@+id/lyTitle2"
+            app:layout_constraintTop_toBottomOf="@+id/lyTitle2"
+            app:layout_constraintEnd_toEndOf="@+id/lyTitle2">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imvSport2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@drawable/ic_launcher_background"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sport2_badminton"
+                android:textAlignment="textStart"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_size_14sp"
+                style="@style/TextTile18"
+                android:textStyle="bold"
+                android:layout_marginStart="@dimen/margin20dp"
+                app:layout_constraintStart_toEndOf="@+id/imvSport2"
+                app:layout_constraintBottom_toBottomOf="@id/imvSport2"
+                app:layout_constraintTop_toTopOf="@+id/imvSport2"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btnTableTennis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin30dp"
+            android:layout_marginTop="@dimen/margin20dp"
+            android:background="@drawable/bg_rounded_corner_button"
+            app:layout_constraintStart_toStartOf="@+id/lyTitle2"
+            app:layout_constraintTop_toBottomOf="@+id/lyTitle2"
+            app:layout_constraintEnd_toEndOf="@+id/lyTitle2">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imvSport3"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@drawable/ic_launcher_background"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sport3_tb_tennis"
+                android:textAlignment="textStart"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_size_14sp"
+                style="@style/TextTile18"
+                android:textStyle="bold"
+                android:layout_marginStart="@dimen/margin20dp"
+                app:layout_constraintStart_toEndOf="@+id/imvSport3"
+                app:layout_constraintBottom_toBottomOf="@id/imvSport3"
+                app:layout_constraintTop_toTopOf="@+id/imvSport3"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btnYoga"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin20dp"
+            android:background="@drawable/bg_rounded_corner_button"
+            android:padding="@dimen/margin30dp"
+            app:layout_constraintEnd_toEndOf="@+id/lyTitle2"
+            app:layout_constraintStart_toStartOf="@+id/lyTitle2"
+            app:layout_constraintTop_toBottomOf="@+id/lyTitle2">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imvSport4"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/ic_launcher_background"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/TextTile18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin20dp"
+                android:text="@string/sport4_yoga"
+                android:textAlignment="textStart"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_size_14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/imvSport4"
+                app:layout_constraintStart_toEndOf="@+id/imvSport4"
+                app:layout_constraintTop_toTopOf="@+id/imvSport4" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btnAerobic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin30dp"
+            android:layout_marginTop="@dimen/margin20dp"
+            android:background="@drawable/bg_rounded_corner_button"
+            app:layout_constraintStart_toStartOf="@+id/lyTitle2"
+            app:layout_constraintTop_toBottomOf="@+id/lyTitle2"
+            app:layout_constraintEnd_toEndOf="@+id/lyTitle2">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imvSport5"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@drawable/ic_launcher_background"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sport5_aerobic"
+                android:textAlignment="textStart"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_size_14sp"
+                style="@style/TextTile18"
+                android:textStyle="bold"
+                android:layout_marginStart="@dimen/margin20dp"
+                app:layout_constraintStart_toEndOf="@+id/imvSport5"
+                app:layout_constraintBottom_toBottomOf="@id/imvSport5"
+                app:layout_constraintTop_toTopOf="@+id/imvSport5"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

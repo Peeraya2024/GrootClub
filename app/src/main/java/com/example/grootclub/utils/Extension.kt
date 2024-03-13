@@ -172,3 +172,20 @@ fun mapTypeSpotToValue(typeSpot: String): String {
         else -> "" // default
     }
 }
+
+fun getCurrentFormattedDate(): String {
+    val currentDate = Calendar.getInstance()
+    val thaiYear = currentDate.get(Calendar.YEAR)
+    val thaiMonth = currentDate.get(Calendar.MONTH) + 1
+    val thaiDay = currentDate.get(Calendar.DAY_OF_MONTH)
+    val formattedThaiDay = String.format("%02d", thaiDay)
+    val formattedThaiMonth = String.format("%02d", thaiMonth)
+    val currentDateString = "$formattedThaiDay/$formattedThaiMonth/$thaiYear"
+    val parts = currentDateString.trim().split("/")
+    val day = parts[0]
+    val month = parts[1]
+    val year = parts[2]
+
+    return "$year-$month-$day"
+}
+

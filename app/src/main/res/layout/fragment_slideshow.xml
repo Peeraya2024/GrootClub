@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_gradient"
-    tools:context=".ui.slideshow.SlideshowFragment">
+    tools:context=".ui.about.AboutUsFragment">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -351,7 +351,7 @@
                 tools:layout_editor_absoluteX="20dp" />
 
             <TextView
-                android:id="@+id/A_Healthier_Lifestyle"
+                android:id="@+id/txtA_Healthier_Lifestyle"
                 style="@style/TextDetail16"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -370,7 +370,7 @@
                 android:text="@string/Joining_our_Sport"
                 android:textAlignment="textStart"
                 android:textColor="@color/white"
-                app:layout_constraintTop_toBottomOf="@+id/A_Healthier_Lifestyle"
+                app:layout_constraintTop_toBottomOf="@+id/txtA_Healthier_Lifestyle"
                 tools:layout_editor_absoluteX="20dp" />
 
             <TextView

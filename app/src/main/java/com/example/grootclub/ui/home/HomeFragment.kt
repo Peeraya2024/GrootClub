@@ -34,6 +34,7 @@ import com.example.grootclub.ui.coach.CoachActivity
 import com.example.grootclub.ui.coach.CoachAdapter
 import com.example.grootclub.ui.coach.CoachVM
 import com.example.grootclub.ui.coach.CoachVMFactory
+import com.example.grootclub.ui.booking.BookingMain
 import com.example.grootclub.ui.signIn.SignInActivity
 import com.example.grootclub.utils.SafeClickListener
 import com.example.grootclub.utils.initDatePickerCurrentDateTomorrow
@@ -163,11 +164,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 val i = Intent(requireContext(), SignInActivity::class.java)
                 startActivity(i)
             } else {
-                Toast.makeText(
-                    this.requireContext(),
-                    "ยังไม่ทำจ้า แม่ป้าสาวส่ำน้อย",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Intent(requireContext(), BookingMain::class.java).also { startActivity(it) }
             }
         }
 
@@ -176,11 +173,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 val i = Intent(requireContext(), SignInActivity::class.java)
                 startActivity(i)
             } else {
-                Toast.makeText(
-                    this.requireContext(),
-                    "ยังไม่ทำจ้า แม่ป้าสาวส่ำน้อย",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Intent(requireContext(), BookingMain::class.java).also { startActivity(it) }
             }
         }
 
@@ -201,137 +194,141 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             adapterCoach.addData(coachList)
             adapterCoach.notifyDataSetChanged()
             adapterCoach.coachItemClickListener = coachItemClickListener
-
-            adapterCoach.setOnItemSelect { coach ->
-                sharedViewModel.selectCoach(coach)
-            }
+            sharedViewModel.selectCoach(coachList)
             mockData()
         }
 
         viewModel.timeTableBooking.observe(viewLifecycleOwner) { data ->
-            if (data != null) {
-                hideProgressDialog()
-                // แสดง View ที่ปิดไว้
-                binding.ListOffTable.visibility = View.VISIBLE
-                // ล้าง TableLayout ก่อน
-                binding.ListOffTable.removeAllViews()
+            try {
+                if (data == null) {
+                    Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show()
+                }
+                if (data != null) {
+                    hideProgressDialog()
+                    // แสดง View ที่ปิดไว้
+                    binding.ListOffTable.visibility = View.VISIBLE
+                    // ล้าง TableLayout ก่อน
+                    binding.ListOffTable.removeAllViews()
 
-                // สร้าง TableLayout ภายใน ScrollView
-                val scrollView = ScrollView(requireContext())
-                val tableLayout = TableLayout(requireContext())
+                    // สร้าง TableLayout ภายใน ScrollView
+                    val scrollView = ScrollView(requireContext())
+                    val tableLayout = TableLayout(requireContext())
 
-                // สร้างแถวเพื่อ Header
-                val headerRow = TableRow(requireContext()).apply {
-                    addView(TextView(requireContext()).apply {
-                        text = "Time"
-                        setTypeface(null, Typeface.BOLD)
-                        setTextColor(ContextCompat.getColor(requireContext(), R.color.text_black))
-                        setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
-                        textAlignment = View.TEXT_ALIGNMENT_CENTER
-                        setBackgroundColor(
-                            ContextCompat.getColor(
-                                requireContext(),
-                                R.color.text_background_color
-                            )
-                        )
-                    })
-                    for (i in 1..6) {
+                    // สร้างแถวเพื่อ Header
+                    val headerRow = TableRow(requireContext()).apply {
                         addView(TextView(requireContext()).apply {
-                            text = "Court $i"
+                            text = "Time"
                             setTypeface(null, Typeface.BOLD)
-                            setTextColor(
-                                ContextCompat.getColor(
-                                    requireContext(),
-                                    R.color.text_black
-                                )
-                            )
+                            setTextColor(ContextCompat.getColor(requireContext(), R.color.text_black))
                             setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
                             textAlignment = View.TEXT_ALIGNMENT_CENTER
+                            setBackgroundColor(
+                                ContextCompat.getColor(
+                                    requireContext(),
+                                    R.color.text_background_color
+                                )
+                            )
+                        })
+                        for (i in 1..6) {
+                            addView(TextView(requireContext()).apply {
+                                text = "Court $i"
+                                setTypeface(null, Typeface.BOLD)
+                                setTextColor(
+                                    ContextCompat.getColor(
+                                        requireContext(),
+                                        R.color.text_black
+                                    )
+                                )
+                                setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
+                                textAlignment = View.TEXT_ALIGNMENT_CENTER
+                                setBackgroundColor(
+                                    ContextCompat.getColor(
+                                        requireContext(),
+                                        R.color.gray_e3
+                                    )
+                                )
+                            })
+                        }
+                    }
+                    tableLayout.addView(headerRow)
+
+                    // สร้างแถวเพื่อแสดงข้อมูลสำหรับแต่ละ slot
+                    for (i in 0 until 17) {
+                        val slotRow = TableRow(requireContext())
+
+                        // เพิ่มเวลาในแนวตั้ง
+                        val timeTextView = TextView(requireContext()).apply {
+                            text = "${data[0].slots[i].startTime} - ${data[0].slots[i].endTime}"
+                            setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
                             setBackgroundColor(
                                 ContextCompat.getColor(
                                     requireContext(),
                                     R.color.gray_e3
                                 )
                             )
-                        })
-                    }
-                }
-                tableLayout.addView(headerRow)
+                        }
 
-                // สร้างแถวเพื่อแสดงข้อมูลสำหรับแต่ละ slot
-                for (i in 0 until 17) {
-                    val slotRow = TableRow(requireContext())
+                        //ทำให้แต่ละช่องมีระยะห่าง
+                        val marginLayoutParams = marginLayoutParams(margin, margin, margin, margin)
+                        timeTextView.layoutParams = marginLayoutParams
 
-                    // เพิ่มเวลาในแนวตั้ง
-                    val timeTextView = TextView(requireContext()).apply {
-                        text = "${data[0].slots[i].startTime} - ${data[0].slots[i].endTime}"
-                        setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
-                        setBackgroundColor(
-                            ContextCompat.getColor(
-                                requireContext(),
-                                R.color.gray_e3
-                            )
-                        )
-                    }
+                        slotRow.addView(timeTextView)
 
-                    //ทำให้แต่ละช่องมีระยะห่าง
-                    val marginLayoutParams = marginLayoutParams(margin, margin, margin, margin)
-                    timeTextView.layoutParams = marginLayoutParams
-
-                    slotRow.addView(timeTextView)
-
-                    // เพิ่มสถานะการจองสำหรับแต่ละ court ในแนวตั้ง
-                    for (court in data) {
-                        if (court.slots.size > i) {
-                            val isBooked = court.slots[i].isBooked
-                            val courtStatusTextView = TextView(requireContext()).apply {
-                                if (isBooked) {
-                                    text = "Booked"
-                                    setBackgroundColor(
-                                        ContextCompat.getColor(
-                                            requireContext(),
-                                            R.color.gray_e3
+                        // เพิ่มสถานะการจองสำหรับแต่ละ court ในแนวตั้ง
+                        for (court in data) {
+                            if (court.slots.size > i) {
+                                val isBooked = court.slots[i].isBooked
+                                val courtStatusTextView = TextView(requireContext()).apply {
+                                    if (isBooked) {
+                                        text = "Booked"
+                                        setBackgroundColor(
+                                            ContextCompat.getColor(
+                                                requireContext(),
+                                                R.color.gray_e3
+                                            )
                                         )
-                                    )
-                                } else {
-                                    text = "Available"
+                                    } else {
+                                        text = "Available"
+                                        setBackgroundColor(
+                                            ContextCompat.getColor(
+                                                requireContext(),
+                                                R.color.text_background_color
+                                            )
+                                        )
+                                    }
+                                    setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
+                                }
+                                val marginLayoutParams =
+                                    marginLayoutParams(margin, margin, margin, margin)
+                                courtStatusTextView.layoutParams = marginLayoutParams
+                                slotRow.addView(courtStatusTextView)
+                            } else {
+                                // ให้เพิ่มช่องที่ไม่มีข้อมูลเป็นสีขาว
+                                val emptyTextView = TextView(requireContext()).apply {
+                                    text = ""
                                     setBackgroundColor(
                                         ContextCompat.getColor(
                                             requireContext(),
-                                            R.color.text_background_color
+                                            android.R.color.white
                                         )
                                     )
                                 }
-                                setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
-                            }
-                            val marginLayoutParams =
-                                marginLayoutParams(margin, margin, margin, margin)
-                            courtStatusTextView.layoutParams = marginLayoutParams
-                            slotRow.addView(courtStatusTextView)
-                        } else {
-                            // ให้เพิ่มช่องที่ไม่มีข้อมูลเป็นสีขาว
-                            val emptyTextView = TextView(requireContext()).apply {
-                                text = ""
-                                setBackgroundColor(
-                                    ContextCompat.getColor(
-                                        requireContext(),
-                                        android.R.color.white
-                                    )
-                                )
-                            }
 
-                            val marginLayoutParams =
-                                marginLayoutParams(margin, margin, margin, margin)
-                            emptyTextView.layoutParams = marginLayoutParams
-                            slotRow.addView(emptyTextView)
+                                val marginLayoutParams =
+                                    marginLayoutParams(margin, margin, margin, margin)
+                                emptyTextView.layoutParams = marginLayoutParams
+                                slotRow.addView(emptyTextView)
+                            }
                         }
+
+                        tableLayout.addView(slotRow)
                     }
 
-                    tableLayout.addView(slotRow)
+                    scrollView.addView(tableLayout)
+                    binding.ListOffTable.addView(scrollView)
                 }
-
-                scrollView.addView(tableLayout)
-                binding.ListOffTable.addView(scrollView)
+            } catch (e: Exception) {
+                Toast.makeText(requireContext(), "Error: ${e.message}", Toast.LENGTH_SHORT).show()
             }
         }
 
