@@ -146,8 +146,9 @@ By using our services, you consent to the terms of this Privacy Policy and the c
     <string name="sport3_tb_tennis">Table tennis</string>
     <string name="sport4_yoga">Yoga</string>
     <string name="sport5_aerobic">Aerobic</string>
-    <string name="next">next</string>
-    <string name="back">back</string>
+    <string name="next">Next</string>
+    <string name="back">Back</string>
+    <string name="submit">Submit</string>
 
 
                  <!--    About Us  -->

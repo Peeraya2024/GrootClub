@@ -23,8 +23,19 @@
 
     <style name="Theme.Grootclub.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="TextTile14" >
+    <item name="android:textSize">@dimen/text_size_14sp</item>
+    <item name="android:textColor">@color/text_slate_700</item>
+    <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="TextTile18" >
         <item name="android:textSize">@dimen/text_size_18sp</item>
+        <item name="android:textColor">@color/text_slate_700</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="TextTile16" >
+        <item name="android:textSize">@dimen/text_size_16sp</item>
         <item name="android:textColor">@color/text_slate_700</item>
         <item name="android:textStyle">bold</item>
     </style>

@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.appzaza.base.BaseActivity
 import com.example.grootclub.R
 import com.example.grootclub.SharedViewModel
-import com.example.grootclub.adapter.ViewPageRegisterAdapter
+import com.example.grootclub.adapter.ViewPageAdapter
 import com.example.grootclub.data.Remote.ApiService
 import com.example.grootclub.data.Remote.Repository.Home.CoachRepository
 import com.example.grootclub.databinding.BookingMainBinding
@@ -20,6 +20,7 @@ import com.example.grootclub.ui.booking.subbooking.ChooseSportFragment
 import com.example.grootclub.ui.booking.subbooking.InformationFragment
 import com.example.grootclub.ui.coach.CoachVM
 import com.example.grootclub.ui.coach.CoachVMFactory
+import com.example.grootclub.ui.dashboard.DashboardFragment
 import com.example.grootclub.utils.getCurrentFormattedDate
 
 class BookingMain : BaseActivity<BookingMainBinding>() {
@@ -50,7 +51,7 @@ class BookingMain : BaseActivity<BookingMainBinding>() {
     }
 
     private fun setViewPager() {
-        val adapter = ViewPageRegisterAdapter(this.supportFragmentManager, array)
+        val adapter = ViewPageAdapter(this.supportFragmentManager, array)
         binding.viewPager.adapter = adapter
         binding.viewPager.setSwipePagingEnabled(false)
         binding.viewPager.offscreenPageLimit = 3
@@ -61,6 +62,7 @@ class BookingMain : BaseActivity<BookingMainBinding>() {
         array.add(ChooseCourtsFragment())
         array.add(InformationFragment())
         array.add(BookingInformationFragment())
+        array.add(DashboardFragment())
     }
 
     private fun initView() {
@@ -72,8 +74,15 @@ class BookingMain : BaseActivity<BookingMainBinding>() {
         binding.appBarMain.toolbar.btnIconStart.visibility = View.VISIBLE
         binding.appBarMain.toolbar.btnIconStart.setBackgroundResource(R.drawable.ic_arrow_back)
         binding.appBarMain.toolbar.btnIconStart.setOnClickListener {
-            this.finish()
+            val pageScreen = array[currentPage]
+            if (pageScreen is DashboardFragment) {
+                navigateToChooseSportFragment()
+            } else {
+                this.finish()
+
+            }
         }
+
     }
 
     private fun setOnClicks() {
@@ -92,14 +101,18 @@ class BookingMain : BaseActivity<BookingMainBinding>() {
             Log.e("initView", "getSelectedSport:: $sport")
             this.sportCourt = sport
             val dateCurrent = getCurrentFormattedDate()
-            viewModel.fetchTimeTableBooking(sportCourt, dateCurrent)
+            viewModel.fetchTimeTableBooking(sportCourt, "2024-03-17")
         }
 
         viewModel.timeTableBooking.observe(this) { data ->
             hideProgressDialog()
             Log.e("initView", "timeTableBooking:: $data")
-            if (data != null) {
+            if (data != null && data.isNotEmpty()) {
                 nextPage()
+                val pageScreen = array[1]
+                if (pageScreen is ChooseCourtsFragment) {
+                    pageScreen.updateDataFromActivity(data)
+                }
             } else {
                 Toast.makeText(this, "Data not found", Toast.LENGTH_SHORT).show()
             }
@@ -116,8 +129,10 @@ class BookingMain : BaseActivity<BookingMainBinding>() {
                     binding.txtBack.visibility = View.VISIBLE
                     binding.txtNext.visibility = View.VISIBLE
                     binding.appBarMain.toolbar.btnIconStart.visibility = View.GONE
+                    binding.txtNext.text = this.getString(R.string.next)
                 }
             }
+
             1 -> {
                 val pageScreen = array[1]
                 if (pageScreen is ChooseCourtsFragment) {
@@ -125,8 +140,10 @@ class BookingMain : BaseActivity<BookingMainBinding>() {
                     currentPage = binding.viewPager.currentItem
                     binding.txtBack.visibility = View.VISIBLE
                     binding.txtNext.visibility = View.VISIBLE
+                    binding.txtNext.text = this.getString(R.string.next)
                 }
             }
+
             2 -> {
                 val pageScreen = array[2]
                 if (pageScreen is InformationFragment) {
@@ -134,15 +151,18 @@ class BookingMain : BaseActivity<BookingMainBinding>() {
                     currentPage = binding.viewPager.currentItem
                     binding.txtBack.visibility = View.VISIBLE
                     binding.txtNext.visibility = View.VISIBLE
+                    binding.txtNext.text = this.getString(R.string.submit)
                 }
             }
+
             3 -> {
                 val pageScreen = array[3]
                 if (pageScreen is BookingInformationFragment) {
+                    binding.appBarMain.toolbar.btnIconStart.visibility = View.VISIBLE
                     binding.viewPager.currentItem = binding.viewPager.currentItem + 1
                     currentPage = binding.viewPager.currentItem
-                    binding.txtBack.visibility = View.VISIBLE
-                    binding.txtNext.visibility = View.VISIBLE
+                    binding.txtBack.visibility = View.GONE
+                    binding.txtNext.visibility = View.GONE
                 }
             }
         }
@@ -157,19 +177,35 @@ class BookingMain : BaseActivity<BookingMainBinding>() {
                 binding.viewPager.currentItem = binding.viewPager.currentItem - 1
                 currentPage = binding.viewPager.currentItem
             }
+
             2 -> {
                 binding.txtBack.visibility = View.VISIBLE
                 binding.txtNext.visibility = View.VISIBLE
+                binding.txtNext.text = this.getString(R.string.next)
 
                 binding.viewPager.currentItem = binding.viewPager.currentItem - 1
                 currentPage = binding.viewPager.currentItem
             }
+
             3 -> {
                 binding.txtBack.visibility = View.VISIBLE
                 binding.txtNext.visibility = View.VISIBLE
+                binding.txtNext.text = this.getString(R.string.next)
+
                 binding.viewPager.currentItem = binding.viewPager.currentItem - 1
                 currentPage = binding.viewPager.currentItem
             }
+        }
+    }
+
+    private fun navigateToChooseSportFragment() {
+        val chooseSportFragment = array[0]
+        if (chooseSportFragment is ChooseSportFragment) {
+            binding.viewPager.currentItem = array.indexOf(chooseSportFragment)
+            currentPage = array.indexOf(chooseSportFragment)
+            binding.txtBack.visibility = View.GONE
+            binding.txtNext.visibility = View.GONE
+            binding.appBarMain.toolbar.btnIconStart.visibility = View.VISIBLE
         }
     }
 }

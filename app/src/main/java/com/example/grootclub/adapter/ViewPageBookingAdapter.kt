@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 
-class ViewPageRegisterAdapter(fm: FragmentManager, private var arrayView: ArrayList<Fragment>) : FragmentPagerAdapter(fm) {
+class ViewPageAdapter(fm: FragmentManager, private var arrayView: ArrayList<Fragment>) : FragmentPagerAdapter(fm) {
     private var swipeEnabled = true
 
     override fun getCount(): Int {

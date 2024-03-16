@@ -5,11 +5,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.grootclub.data.CoachListModelItem
 import com.example.grootclub.data.ProductModel
+import com.example.grootclub.data.TimeTableBookingModelItem
 
 class SharedViewModel : ViewModel() {
     private val selectedStadium = MutableLiveData<ProductModel.Stadium>()
     private val selectedCoach = MutableLiveData<List<CoachListModelItem>>()
     private val selectedSport = MutableLiveData<String>()
+    private val timeTableBooking = MutableLiveData<List<TimeTableBookingModelItem>>()
 
     fun selectStadium(stadium: ProductModel.Stadium) {
         selectedStadium.value = stadium
@@ -31,5 +33,12 @@ class SharedViewModel : ViewModel() {
     }
     fun getSelectedSport(): MutableLiveData<String> {
         return selectedSport
+    }
+    fun setTimeTableBooking(data: List<TimeTableBookingModelItem>) {
+        timeTableBooking.value = data
+    }
+
+    fun getTimeTableBooking(): LiveData<List<TimeTableBookingModelItem>> {
+        return timeTableBooking
     }
 }

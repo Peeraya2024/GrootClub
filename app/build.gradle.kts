@@ -73,6 +73,7 @@ dependencies {
 
     implementation ("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
     implementation("androidx.databinding:databinding-runtime:8.3.0")
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
 
 //    implementation group: 'io.appium', name: 'java-client', version: '7.1.0'
 //    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.0'

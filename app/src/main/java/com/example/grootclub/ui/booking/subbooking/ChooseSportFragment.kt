@@ -26,7 +26,20 @@ class ChooseSportFragment : BaseFragment<FragmentChooseSportBinding>() {
     override fun prepareView(savedInstanceState: Bundle?) {
         sharedViewModel = ViewModelProvider(requireActivity())[SharedViewModel::class.java]
         initView()
+        setObserveData()
         setOnClicks()
+    }
+
+    private fun setObserveData() {
+//        sharedViewModel.getTimeTableBooking().observe(this){
+//            if (it.isNotEmpty()) {
+//                it.forEach { it ->
+//                    Log.e("setObserveData", "setObserveData: courtNumber: ${it.courtNumber} slots: ${it.slots}")
+//                }
+//            } else {
+//                Toast.makeText(requireContext(), "No data", Toast.LENGTH_SHORT).show()
+//            }
+//        }
     }
 
     private fun initView() {}
@@ -55,6 +68,10 @@ class ChooseSportFragment : BaseFragment<FragmentChooseSportBinding>() {
 
     private fun sentDataIntent(sport : String) {
         sharedViewModel.setSelectedSport(sport)
+    }
+
+    fun updateDataFromActivity(data: Any) {
+        // ทำการอัพเดทข้อมูลที่ได้รับจาก Activity และปรับปรุงหน้าจอตามต้องการ
     }
 
 }
