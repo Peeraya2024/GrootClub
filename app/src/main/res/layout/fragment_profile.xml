@@ -56,7 +56,7 @@
 
             <LinearLayout
                 android:id="@+id/layoutMyProfile"
-                android:gravity="center"
+                android:gravity="start"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin30dp"
@@ -77,6 +77,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="email : "
+
                         android:textColor="@color/black"
                         style="@style/TextTile18"/>
 
@@ -85,7 +86,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/app_name"
-                        style="@style/TextTile18"/>
+                        style="@style/TextDetail16"/>
 
                 </LinearLayout>
 
@@ -107,7 +108,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/app_name"
-                        style="@style/TextTile18"/>
+                        style="@style/TextDetail16"/>
 
                 </LinearLayout>
 
@@ -129,7 +130,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/app_name"
-                        style="@style/TextTile18"/>
+                        style="@style/TextDetail16"/>
 
                 </LinearLayout>
 
@@ -151,7 +152,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/app_name"
-                        style="@style/TextTile18"/>
+                        style="@style/TextDetail16"/>
 
                 </LinearLayout>
 
@@ -173,7 +174,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/app_name"
-                        style="@style/TextTile18"/>
+                        style="@style/TextDetail16"/>
 
                 </LinearLayout>
 
@@ -282,7 +283,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/btnEditProfile"
                 android:layout_width="150dp"
-                android:layout_height="60dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/bg_rounded_corner"
                 android:gravity="center"
@@ -322,78 +323,15 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/txtAboutMe"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin30dp"
-                android:layout_marginTop="@dimen/margin30dp"
-                android:text="@string/txt_about_me"
-                android:textColor="@color/text_slate_700"
-                android:textSize="@dimen/text_size_18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnEditProfile" />
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:id="@+id/layoutTvAboutMe"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin30dp"
-                android:layout_marginTop="@dimen/margin10dp"
-                android:layout_marginEnd="@dimen/margin30dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtAboutMe">
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tvAboutMe"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/about_me"
-                    android:textColor="@color/text_slate_700"
-                    android:textSize="@dimen/text_size_18sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtAboutMe" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tvReadMore"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Read More"
-                    android:textColor="@color/bg1"
-                    android:textSize="18sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/tvAboutMe"
-                    app:layout_constraintStart_toEndOf="@+id/tvAboutMe"
-                    app:layout_constraintTop_toTopOf="@+id/tvAboutMe" />
-
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layoutInterest"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginEnd="30dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/layoutTvAboutMe">
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/txtInterest"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Interest"
-                    android:textColor="@color/text_slate_700"
-                    android:textSize="@dimen/text_size_18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                tools:layout_editor_absoluteY="601dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/btnChangeInterest"
@@ -403,52 +341,10 @@
                     android:backgroundTint="@color/background_color"
                     android:gravity="center"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="5dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/imvChangeInterest"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/ic_edit"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:id="@+id/txtChangeInterest"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/change"
-                            android:textColor="@color/green_cadmium"
-                            app:layout_constraintBottom_toBottomOf="@+id/imvChangeInterest"
-                            app:layout_constraintStart_toEndOf="@+id/imvChangeInterest"
-                            app:layout_constraintTop_toTopOf="@id/imvChangeInterest" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcvInterest"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="30dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/layoutInterest" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

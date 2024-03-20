@@ -34,8 +34,10 @@ class MockData {
             )
 
         var imageList = arrayListOf(
-            R.drawable.logo, R.drawable.arrow_drop_down, R.drawable.calendar_month_24, R.drawable.logo
-        )
+            R.drawable.aerobic_01, R.drawable.aerobic_02, R.drawable.tabletennis_02,
+            R.drawable.tennis_01,R.drawable.tennis_02,R.drawable.yoga_01,R.drawable.yoga_02,
+            R.drawable.badminton_01,
+            )
 
         fun generateRandomGender(): String {
             val spotOptions = generateSpotOptions()
