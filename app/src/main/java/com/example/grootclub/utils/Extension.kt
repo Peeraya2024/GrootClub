@@ -188,4 +188,15 @@ fun getCurrentFormattedDate(): String {
 
     return "$year-$month-$day"
 }
+fun getCurrentFormattedDatePlusOneDay(): String {
+    val currentDate = Calendar.getInstance()
+    currentDate.add(Calendar.DAY_OF_MONTH, 1) // เพิ่มวันลงไปหนึ่งวัน
+
+    val thaiYear = currentDate.get(Calendar.YEAR)
+    val thaiMonth = currentDate.get(Calendar.MONTH) + 1
+    val thaiDay = currentDate.get(Calendar.DAY_OF_MONTH)
+    val formattedThaiDay = String.format("%02d", thaiDay)
+    val formattedThaiMonth = String.format("%02d", thaiMonth)
+    return "$thaiYear-$formattedThaiMonth-$formattedThaiDay"
+}
 

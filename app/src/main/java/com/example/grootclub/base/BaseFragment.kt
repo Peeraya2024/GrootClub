@@ -41,6 +41,19 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         super.onDestroyView()
     }
 
+    override fun onResume() {
+        super.onResume()
+    }
+
+    fun replaceFragmentWithBundle(fragment: Fragment, bundle: Bundle, containerViewId: Int) {
+        fragment.arguments = bundle // กำหนด Bundle ให้กับ Fragment
+        val transaction = this.parentFragmentManager.beginTransaction()
+        transaction.replace(containerViewId, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
+    }
+
+
 
     fun showProgressDialog(message: String? = null, @ColorRes progressColor: Int = -1) {
         //fix : java.lang.IllegalStateException: Fragment AbsenceCalendarScreen{595fb51} (7263ff01-1917-418c-bb04-e4cae378f0f5)} has not been attached yet.

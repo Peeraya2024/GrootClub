@@ -59,7 +59,7 @@
                     android:id="@+id/linearDay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin20dp"
+                    android:padding="@dimen/margin10dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:gravity="center"
@@ -74,7 +74,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:enabled="false"
-                        android:background="@drawable/bg_rounded_corner_button"/>
+                        android:background="@drawable/bg_rounded_button_gray"/>
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btnTomorrow"
@@ -86,7 +86,7 @@
                         android:layout_marginStart="@dimen/margin10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/bg_rounded_corner_button"/>
+                        android:background="@drawable/bg_rounded_button_gray"/>
 
                 </LinearLayout>
 
@@ -110,7 +110,7 @@
                         android:layout_height="wrap_content"
                         android:enabled="false"
                         android:padding="@dimen/margin10dp"
-                        android:background="@drawable/bg_rounded_corner_button"/>
+                        android:background="@drawable/bg_rounded_button_gray"/>
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/time2"
@@ -123,7 +123,7 @@
                         android:layout_margin="@dimen/margin10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/bg_rounded_corner_button"/>
+                        android:background="@drawable/bg_rounded_button_gray"/>
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/time3"
@@ -135,7 +135,7 @@
                         android:layout_height="wrap_content"
                         android:enabled="false"
                         android:padding="@dimen/margin10dp"
-                        android:background="@drawable/bg_rounded_corner_button"/>
+                        android:background="@drawable/bg_rounded_button_gray"/>
 
                 </LinearLayout>
 
@@ -158,7 +158,7 @@
                         android:layout_height="wrap_content"
                         android:enabled="false"
                         android:padding="@dimen/margin10dp"
-                        android:background="@drawable/bg_rounded_corner_button"/>
+                        android:background="@drawable/bg_rounded_button_gray"/>
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/time5"
@@ -171,7 +171,7 @@
                         android:layout_margin="@dimen/margin10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/bg_rounded_corner_button"/>
+                        android:background="@drawable/bg_rounded_button_gray"/>
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/time6"
@@ -183,7 +183,7 @@
                         android:layout_height="wrap_content"
                         android:enabled="false"
                         android:padding="@dimen/margin10dp"
-                        android:background="@drawable/bg_rounded_corner_button"/>
+                        android:background="@drawable/bg_rounded_button_gray"/>
 
                 </LinearLayout>
 
@@ -206,7 +206,7 @@
                         android:layout_height="wrap_content"
                         android:enabled="false"
                         android:padding="@dimen/margin10dp"
-                        android:background="@drawable/bg_rounded_corner_button"/>
+                        android:background="@drawable/bg_rounded_button_gray"/>
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/time8"
@@ -219,7 +219,7 @@
                         android:layout_margin="@dimen/margin10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/bg_rounded_corner_button"/>
+                        android:background="@drawable/bg_rounded_button_gray"/>
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/time9"
@@ -231,7 +231,7 @@
                         android:layout_height="wrap_content"
                         android:enabled="false"
                         android:padding="@dimen/margin10dp"
-                        android:background="@drawable/bg_rounded_corner_button"/>
+                        android:background="@drawable/bg_rounded_button_gray"/>
 
                 </LinearLayout>
 
@@ -254,7 +254,7 @@
                         android:layout_height="wrap_content"
                         android:enabled="false"
                         android:padding="@dimen/margin10dp"
-                        android:background="@drawable/bg_rounded_corner_button"/>
+                        android:background="@drawable/bg_rounded_button_gray"/>
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/time11"
@@ -267,7 +267,7 @@
                         android:layout_margin="@dimen/margin10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/bg_rounded_corner_button"/>
+                        android:background="@drawable/bg_rounded_button_gray"/>
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/time12"
@@ -279,7 +279,7 @@
                         android:layout_height="wrap_content"
                         android:enabled="false"
                         android:padding="@dimen/margin10dp"
-                        android:background="@drawable/bg_rounded_corner_button"/>
+                        android:background="@drawable/bg_rounded_button_gray"/>
 
                 </LinearLayout>
 
@@ -302,7 +302,7 @@
                         android:layout_height="wrap_content"
                         android:enabled="false"
                         android:padding="@dimen/margin10dp"
-                        android:background="@drawable/bg_rounded_corner_button"/>
+                        android:background="@drawable/bg_rounded_button_gray"/>
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/time14"
@@ -315,7 +315,7 @@
                         android:layout_margin="@dimen/margin10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/bg_rounded_corner_button"/>
+                        android:background="@drawable/bg_rounded_button_gray"/>
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/time15"
@@ -327,7 +327,7 @@
                         android:layout_height="wrap_content"
                         android:enabled="false"
                         android:padding="@dimen/margin10dp"
-                        android:background="@drawable/bg_rounded_corner_button"/>
+                        android:background="@drawable/bg_rounded_button_gray"/>
 
                 </LinearLayout>
 
@@ -350,7 +350,7 @@
                         android:layout_height="wrap_content"
                         android:enabled="false"
                         android:padding="@dimen/margin10dp"
-                        android:background="@drawable/bg_rounded_corner_button"/>
+                        android:background="@drawable/bg_rounded_button_gray"/>
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/time17"
@@ -363,7 +363,7 @@
                         android:layout_margin="@dimen/margin10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/bg_rounded_corner_button"/>
+                        android:background="@drawable/bg_rounded_button_gray"/>
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:text="14:00-15:00"
@@ -375,7 +375,7 @@
                         android:layout_height="wrap_content"
                         android:enabled="false"
                         android:padding="@dimen/margin10dp"
-                        android:background="@drawable/bg_rounded_corner_button"/>
+                        android:background="@drawable/bg_rounded_button_gray"/>
 
                 </LinearLayout>
 
@@ -399,7 +399,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:enabled="false"
-                        android:background="@drawable/bg_rounded_corner_button"/>
+                        android:background="@drawable/bg_rounded_button_gray"/>
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btnNoCoach"
@@ -411,7 +411,7 @@
                         android:layout_marginStart="@dimen/margin10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/bg_rounded_corner_button"/>
+                        android:background="@drawable/bg_rounded_button_gray"/>
 
                 </LinearLayout>
 

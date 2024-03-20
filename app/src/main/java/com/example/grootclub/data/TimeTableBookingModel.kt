@@ -11,7 +11,8 @@ data class TimeTableBookingModelItem(
     @SerialName("_id")
     val id: String,
     @SerialName("slots")
-    val slots: List<Slot>
+    val slots: List<Slot>,
+    var isButtonSelected: Boolean = false
 )
 
 @Serializable

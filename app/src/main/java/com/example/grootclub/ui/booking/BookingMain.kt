@@ -11,6 +11,9 @@ import com.example.appzaza.base.BaseActivity
 import com.example.grootclub.R
 import com.example.grootclub.SharedViewModel
 import com.example.grootclub.adapter.ViewPageAdapter
+import com.example.grootclub.components.dialog.DialogProgress
+import com.example.grootclub.components.dialog.MyDialog
+import com.example.grootclub.data.MockData
 import com.example.grootclub.data.Remote.ApiService
 import com.example.grootclub.data.Remote.Repository.Home.CoachRepository
 import com.example.grootclub.databinding.BookingMainBinding
@@ -21,6 +24,7 @@ import com.example.grootclub.ui.booking.subbooking.InformationFragment
 import com.example.grootclub.ui.coach.CoachVM
 import com.example.grootclub.ui.coach.CoachVMFactory
 import com.example.grootclub.ui.dashboard.DashboardFragment
+import com.example.grootclub.utils.GlobalVar
 import com.example.grootclub.utils.getCurrentFormattedDate
 
 class BookingMain : BaseActivity<BookingMainBinding>() {
@@ -35,6 +39,13 @@ class BookingMain : BaseActivity<BookingMainBinding>() {
     private var currentPage: Int = 0
     private var sportCourt: String = ""
 
+    //InformationFragment
+    private var sportName: String = ""
+    private var courtNumber = 0
+    private var date: String = ""
+    private var time: String = ""
+    private var coach: String = ""
+
 
     override fun prepareView(savedInstanceState: Bundle?) {
         sharedViewModel = ViewModelProvider(this)[SharedViewModel::class.java]
@@ -46,6 +57,13 @@ class BookingMain : BaseActivity<BookingMainBinding>() {
 
         initView()
         initToolBar()
+        sharedViewModel.getSelectedCoach().observe(this) { it ->
+            if (it != null && it.isNotEmpty()) {
+                Log.e("initView", "getSelectedCoach:: $it")
+            } else {
+                Toast.makeText(this, "Data not found SelectedCoach", Toast.LENGTH_SHORT).show()
+            }
+        }
         setObserveData()
         setOnClicks()
     }
@@ -54,7 +72,7 @@ class BookingMain : BaseActivity<BookingMainBinding>() {
         val adapter = ViewPageAdapter(this.supportFragmentManager, array)
         binding.viewPager.adapter = adapter
         binding.viewPager.setSwipePagingEnabled(false)
-        binding.viewPager.offscreenPageLimit = 3
+        binding.viewPager.offscreenPageLimit = 4
     }
 
     private fun arrayView() {
@@ -101,7 +119,7 @@ class BookingMain : BaseActivity<BookingMainBinding>() {
             Log.e("initView", "getSelectedSport:: $sport")
             this.sportCourt = sport
             val dateCurrent = getCurrentFormattedDate()
-            viewModel.fetchTimeTableBooking(sportCourt, "2024-03-17")
+            viewModel.fetchTimeTableBooking(sportCourt, dateCurrent)
         }
 
         viewModel.timeTableBooking.observe(this) { data ->
@@ -111,15 +129,28 @@ class BookingMain : BaseActivity<BookingMainBinding>() {
                 nextPage()
                 val pageScreen = array[1]
                 if (pageScreen is ChooseCourtsFragment) {
-                    pageScreen.updateDataFromActivity(data)
+                    pageScreen.updateDataFromActivity(data, sportCourt)
                 }
             } else {
                 Toast.makeText(this, "Data not found", Toast.LENGTH_SHORT).show()
             }
         }
+//        sharedViewModel.getBookingInfo().observe(this) {
+//            if (it != null) {
+//                val pageScreen = array[2]
+//                if (pageScreen is InformationFragment) {
+//                    pageScreen.updateDataFromActivity(it)
+//                } else {
+//                    Toast.makeText(this, "BookingInfo is null", Toast.LENGTH_SHORT).show()
+//                }
+//            } else {
+//                Toast.makeText(this, "BookingInfo is null", Toast.LENGTH_SHORT).show()
+//            }
+//        }
     }
 
     private fun nextPage() {
+        val myDialog = MyDialog()
         when (currentPage) {
             0 -> {
                 val pageScreen = array[0]
@@ -136,11 +167,16 @@ class BookingMain : BaseActivity<BookingMainBinding>() {
             1 -> {
                 val pageScreen = array[1]
                 if (pageScreen is ChooseCourtsFragment) {
-                    binding.viewPager.currentItem = binding.viewPager.currentItem + 1
-                    currentPage = binding.viewPager.currentItem
-                    binding.txtBack.visibility = View.VISIBLE
-                    binding.txtNext.visibility = View.VISIBLE
-                    binding.txtNext.text = this.getString(R.string.next)
+                    if (!pageScreen.checkField()) {
+                        myDialog.showDialog(this, "Alert", "Please select all fields")
+                    } else {
+                        pageScreen.senDataBundle()
+                        binding.viewPager.currentItem = binding.viewPager.currentItem + 1
+                        currentPage = binding.viewPager.currentItem
+                        binding.txtBack.visibility = View.VISIBLE
+                        binding.txtNext.visibility = View.VISIBLE
+                        binding.txtNext.text = this.getString(R.string.next)
+                    }
                 }
             }
 
@@ -176,6 +212,12 @@ class BookingMain : BaseActivity<BookingMainBinding>() {
                 binding.txtNext.visibility = View.GONE
                 binding.viewPager.currentItem = binding.viewPager.currentItem - 1
                 currentPage = binding.viewPager.currentItem
+                val pageScreen = array[1]
+                if (pageScreen is ChooseCourtsFragment) {
+                    pageScreen.clearData()
+                    pageScreen.enableView(false)
+                    pageScreen.clearSelectedItem()
+                }
             }
 
             2 -> {
@@ -185,6 +227,7 @@ class BookingMain : BaseActivity<BookingMainBinding>() {
 
                 binding.viewPager.currentItem = binding.viewPager.currentItem - 1
                 currentPage = binding.viewPager.currentItem
+
             }
 
             3 -> {

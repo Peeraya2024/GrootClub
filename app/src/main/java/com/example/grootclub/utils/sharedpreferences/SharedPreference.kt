@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import com.example.grootclub.MainActivity
+import com.example.grootclub.data.MockData
 import com.example.grootclub.ui.signIn.SignInActivity
 
 class SharedPreference(val context: Context) {
@@ -34,6 +35,15 @@ class SharedPreference(val context: Context) {
 
     fun getValueString(keyName: String): String? {
         return sharedPref.getString(keyName, "")
+    }
+
+    fun setValueInt(keyName: String, int: Int) {
+        editor.putInt(keyName, int)
+        editor.apply()
+    }
+
+    fun getValueInt(keyName: String): Int {
+        return sharedPref.getInt(keyName, 0)
     }
 
     fun setValueBoolean(keyName: String, boolean: Boolean) {

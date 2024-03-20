@@ -1,5 +1,7 @@
 package com.example.grootclub.data
 
+import android.os.Parcel
+import android.os.Parcelable
 import com.example.grootclub.R
 import kotlin.random.Random
 
@@ -39,6 +41,45 @@ class MockData {
             val spotOptions = generateSpotOptions()
             val randomIndex = Random.nextInt(spotOptions.size)
             return spotOptions[randomIndex]
+        }
+
+        data class BookingInformation(
+            val sportName: String?,
+            val courtNumber: Int = 0,
+            val date: String?,
+            val time: String?,
+            val coach: String?
+        ) : Parcelable {
+            constructor(parcel: Parcel) : this(
+                parcel.readString(),
+                parcel.readInt(),
+                parcel.readString(),
+                parcel.readString(),
+                parcel.readString()
+            ) {
+            }
+
+            override fun writeToParcel(parcel: Parcel, flags: Int) {
+                parcel.writeString(sportName)
+                parcel.writeInt(courtNumber)
+                parcel.writeString(date)
+                parcel.writeString(time)
+                parcel.writeString(coach)
+            }
+
+            override fun describeContents(): Int {
+                return 0
+            }
+
+            companion object CREATOR : Parcelable.Creator<BookingInformation> {
+                override fun createFromParcel(parcel: Parcel): BookingInformation {
+                    return BookingInformation(parcel)
+                }
+
+                override fun newArray(size: Int): Array<BookingInformation?> {
+                    return arrayOfNulls(size)
+                }
+            }
         }
     }
 }
